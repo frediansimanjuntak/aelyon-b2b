@@ -5,8 +5,6 @@ ruby '2.6.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -31,6 +29,21 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'spree', '~> 4.1'
 gem 'spree_auth_devise', '~> 4.1'
 gem 'spree_gateway', '~> 3.7'
+
+# Database PostgreSQL
+gem 'pg'
+
+# Multi vendor
+gem 'spree_multi_vendor', github: 'spree-contrib/spree_multi_vendor'
+
+# HTML view use slim
+gem 'slim'
+
+gem 'enumerize'
+
+gem 'cocoon'
+
+gem 'aws-sdk-s3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
