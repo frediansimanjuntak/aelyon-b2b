@@ -1,0 +1,24 @@
+.col-lg-11.mx-auto
+  h4.color-primary.font-weight-semibold.text-4.text-uppercase.mb-3 Log In to My Account
+  = form_for Spree.user_class.new, as: :spree_user, url: spree_login_path do |f|
+    #password-credentials
+      .form-row
+        .form-group.col
+          p.form-group.checkout-content-inner-field
+            = f.label :email, class: 'font-weight-bold text-dark text-2'
+            = f.email_field :email, class: 'form-control form-control-lg', autofocus: true
+      .form-row
+        .form-group.col
+          p.form-group.checkout-content-inner-field
+            = f.label :password, class: 'font-weight-bold text-dark text-2'
+            = f.password_field :password, class: 'form-control form-control-lg', autofocus: true
+    / - if Spree::Frontend::Config[:remember_me_enabled]
+      .spree-checkbox-container.mt-4.mt-sm-5.mt-lg-4.spree-mb-medium
+        .spree-checkbox
+          = f.check_box :remember_me, tabindex: 3
+          = f.label :remember_me, ''
+        = f.label :remember_me, Spree.t(:remember_me), class: 'spree-checkbox-label'
+    = f.submit Spree.t(:log_in), class: 'btn btn-primary btn-block spree-btn mt-2', tabindex: 4
+  - if spree.respond_to?(:recover_password_path)
+    .text-center.forgot-password.mb-4
+      = link_to Spree.t(:forgot_password), spree.recover_password_path

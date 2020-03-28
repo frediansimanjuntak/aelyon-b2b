@@ -26,15 +26,14 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# Install spree for e-commerce
 gem 'spree', '~> 4.1'
 gem 'spree_auth_devise', '~> 4.1'
 gem 'spree_gateway', '~> 3.7'
+gem 'spree_multi_vendor', github: 'spree-contrib/spree_multi_vendor'
 
 # Database PostgreSQL
 gem 'pg'
-
-# Multi vendor
-gem 'spree_multi_vendor', github: 'spree-contrib/spree_multi_vendor'
 
 # HTML view use slim
 gem 'slim'
@@ -43,11 +42,17 @@ gem 'enumerize'
 
 gem 'cocoon'
 
+# AWS S3 gem for file storage
 gem 'aws-sdk-s3'
+
+#font-awesome
+gem 'font-awesome-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Manage env variables during development and testing
+  gem 'dotenv-rails'
 end
 
 group :development do

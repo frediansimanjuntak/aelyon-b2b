@@ -1,0 +1,23 @@
+- @body_id = 'login'
+/ .container.user-sessions.user-sessions-new
+  .row
+    .col-lg-6.offset-lg-3
+      .mb-3
+        #existing-customer data-hook="login" 
+          =render partial: 'spree/shared/login'
+          div data-hook="login_extras" 
+        .col-lg-11.mx-auto data-hook="registration" 
+          = render partial: 'spree/shared/registration', locals: { registration_button: 'registration-button' }
+.container
+  .row
+    .col
+      .featured-boxes
+        .row
+          .col-md-12
+            .featured-box.featured-box-primary.text-left.mt-5
+              .box-content
+                = render partial: 'spree/shared/login'
+                div data-hook="login_extras" 
+              / .col-lg-11.mx-auto data-hook="registration" 
+                = render partial: 'spree/shared/registration', locals: { registration_button: 'registration-button' }
+          

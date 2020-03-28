@@ -1,0 +1,27 @@
+- @body_id = 'signup'
+.container
+  .row
+    .col
+      .featured-boxes
+        .row
+          .col-md-12
+            = render partial: 'spree/shared/error_messages', locals: { target: @user }
+            .featured-box.featured-box-primary.text-left.mt-5
+              .box-content
+                h4.color-primary.font-weight-semibold.text-4.text-uppercase.mb-3 Register An Account
+                #new-customer data-hook="login" 
+                  = form_for resource, as: :spree_user, url: spree.registration_path do |f|
+                    div data-hook="signup_inside_form" 
+                      = render partial: 'spree/shared/user_form', locals: { f: f, remember_me_field: true }
+                      div
+                    .form-row
+                      .form-group.col-lg-9
+                        .custom-control.custom-checkbox
+                          input#terms.custom-control-input type="checkbox"
+                          label.custom-control-label.text-2 for="terms" 
+                            | I have read and agree to the
+                            a href="#"  terms of service
+                      .form-group.col-lg-3
+                        = f.submit Spree.t(:sign_up), class: 'btn btn-primary btn-modern float-right'
+
+
