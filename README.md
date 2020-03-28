@@ -13,8 +13,8 @@ The following are needed by this project:
 
 Clone this repository and bundle.
 
-    git clone https://github.com/david-exit/Aelyon-Project.git
-    cd Aelyon-Project
+    git clone https://github.com/frediansimanjuntak/aelyon-b2b.git
+    cd aelyon-b2b
     bundle install
 
 Create and initialize the database using this command:
