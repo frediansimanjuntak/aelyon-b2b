@@ -1,9 +1,12 @@
 module MyStore
     module Spree
       module UserDecorator
-  
-        def self.prepended(base)
-            
+        def active_for_authentication?
+          super && is_confirmed?
+        end
+
+        def confirmed?
+          super && is_confirmed?
         end
       end
     end
