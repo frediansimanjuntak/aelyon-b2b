@@ -1,6 +1,6 @@
 module MyStore
   module Spree
-    module UserRegistrationsController
+    module UserRegistrationsControllerDecorator
       # POST /resource/sign_up
       def create
         # render json: params.to_json 
@@ -40,4 +40,5 @@ module MyStore
   end
 end
 
-::Spree::UserRegistrationsController.prepend MyStore::Spree::UserRegistrationsController
+
+::Spree::UserRegistrationsController.prepend MyStore::Spree::UserRegistrationsControllerDecorator if ::Spree::UserRegistrationsController.included_modules.exclude?(MyStore::Spree::UserRegistrationsControllerDecorator)

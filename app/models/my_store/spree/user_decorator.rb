@@ -18,4 +18,4 @@ module MyStore
   end
 end
 
-::Spree::User.prepend(MyStore::Spree::UserDecorator) 
+::Spree::User.prepend MyStore::Spree::UserDecorator if ::Spree::User.included_modules.exclude?(MyStore::Spree::UserDecorator)

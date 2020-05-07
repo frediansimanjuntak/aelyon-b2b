@@ -13,4 +13,4 @@ module MyStore
   end
 end
 
-::Spree::Vendor.prepend(MyStore::Spree::VendorDecorator) 
+::Spree::Vendor.prepend MyStore::Spree::VendorDecorator if ::Spree::Vendor.included_modules.exclude?(MyStore::Spree::VendorDecorator)

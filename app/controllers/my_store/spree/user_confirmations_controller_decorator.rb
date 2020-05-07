@@ -1,6 +1,6 @@
 module MyStore
   module Spree
-    module UserConfirmationsController
+    module UserConfirmationsControllerDecorator
       # GET /resource/confirmation?confirmation_token=abcdef
       def show
         self.resource = resource_class.confirm_by_token(params[:confirmation_token])
@@ -28,4 +28,4 @@ module MyStore
   end
 end
 
-::Spree::UserConfirmationsController.prepend MyStore::Spree::UserConfirmationsController
+::Spree::UserConfirmationsController.prepend MyStore::Spree::UserConfirmationsControllerDecorator if ::Spree::UserConfirmationsController.included_modules.exclude?(MyStore::Spree::UserConfirmationsControllerDecorator)

@@ -9,4 +9,4 @@ module MyStore
   end
 end
 
-::Spree::Ability.prepend(MyStore::Spree::AbilityDecorator) 
+::Spree::Ability.prepend MyStore::Spree::AbilityDecorator if ::Spree::Ability.included_modules.exclude?(MyStore::Spree::AbilityDecorator)
