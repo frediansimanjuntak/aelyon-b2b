@@ -30,5 +30,8 @@ module AelyonB2b
     config.generators do |generate|
       generate.orm :active_record, primary_key_type: :uuid
     end
+
+    # config.load_defaults 6.0
+    config.autoload = :classic
   end
 end
