@@ -1,6 +1,93 @@
 / body
 - cache spree_nav_cache_key('header') do
-  header#header.header-effect-shrink data-plugin-options=("{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 70}") 
+  
+  header#header.header-effect-shrink data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyChangeLogo': true, 'stickyStartAt': 120, 'stickyHeaderContainerHeight': 70}" 
+    .header-body.border-top-0
+      .header-top
+        .container
+          .header-row.py-2
+            .header-column.justify-content-start
+              .header-row
+                nav.header-nav-top
+                  ul.nav.nav-pills
+                    li.nav-item.nav-item-anim-icon
+                      a.nav-link.pl-0 href="/" 
+                        | Tentang Aelyon
+                    li.nav-item.nav-item-left-border.nav-item-left-border-remove.nav-item-left-border-sm-show
+                      a.nav-link href="/" 
+                        | Mitra Aelyon
+                    li.nav-item.nav-item-left-border.nav-item-left-border-remove.nav-item-left-border-sm-show
+                      a.nav-link href="/" 
+                        | Promo
+                    li.nav-item.nav-item-left-border.nav-item-left-border-remove.nav-item-left-border-sm-show
+                      a.nav-link href="/" 
+                        | Need help ?
+            .header-column.justify-content-end
+              .header-row
+                ul.header-social-icons.social-icons.d-none.d-sm-block.social-icons-clean
+                  li.social-icons-facebook
+                    a href="http://www.facebook.com/" target="_blank" title="Facebook" 
+                      i.fab.fa-facebook-f
+                  li.social-icons-twitter
+                    a href="http://www.twitter.com/" target="_blank" title="Twitter" 
+                      i.fab.fa-twitter
+                  li.social-icons-linkedin
+                    a href="http://www.linkedin.com/" target="_blank" title="Linkedin" 
+                      i.fab.fa-linkedin-in
+      .header-container.container
+        .header-row
+          .header-column
+            .header-row
+              .header-logo
+                a href="/" 
+                  img alt="Porto" data-sticky-height="40" data-sticky-width="150" height="48" src="#{asset_path('img/aelyon-logo-dark.png')}" width="180"
+          .header-column.justify-content-end
+            .header-row               
+              .header-nav.header-nav-links
+                .header-nav-main.header-nav-main-square.header-nav-main-dropdown-no-borders.header-nav-main-dropdown-arrow.header-nav-main-effect-3.header-nav-main-sub-effect-1
+                  nav.collapse
+                    ul#mainNav.nav.nav-pills  
+                      li.dropdown
+                        a.dropdown-item.dropdown-toggle href="/" 
+                          | Categories  
+                        ul.dropdown-menu
+                          li
+                            a.dropdown-item href="/products" 
+                              | Industrial Supply 
+                          li
+                            a.dropdown-item href="/products" 
+                              | Food abd Beverages        
+                      li
+                        .nav-search
+                          form action="page-search-results.html" method="get" role="search" 
+                            .simple-search.input-group
+                              input#headerSearch.form-control.text-1 name="q" placeholder="Search..." type="search" value=""
+                              span.input-group-append
+                                button.btn type="submit" 
+                                  i.fa.fa-search.header-nav-top-icon
+                button.btn.header-btn-collapse-nav data-target=(".header-nav-main nav") data-toggle="collapse" 
+                  i.fas.fa-bars
+              .header-nav-features.header-nav-features-no-border.header-nav-features-lg-show-border.order-1.order-lg-2.features-icon-nav
+                .header-nav-feature.header-nav-features-search.d-inline-flex
+                  .icon-feature
+                    - if try_spree_current_user
+                      - if spree.respond_to?(:account_path)
+                        = link_to spree.account_path do
+                          i.far.fa-user
+                    - else
+                      - if defined?(spree_login_path)
+                        = link_to login_path do
+                          i.far.fa-user
+                  .icon-feature
+                    a.header-nav-features-toggle href="#" 
+                      i.far.fa-bell
+                  .icon-feature
+                    a.header-nav-features-toggle href="#" 
+                      i.fas.fa-dolly-flatbed
+
+
+  
+  / header#header.header-effect-shrink data-plugin-options=("{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 70}") 
     .header-body.border-top-0.bg-dark.box-shadow-none
       .header-container.container
         .header-row

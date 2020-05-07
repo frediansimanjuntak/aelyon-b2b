@@ -141,7 +141,7 @@ li {
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-item-align: stretch;
-	align-self: stretch;
+	/* align-self: stretch; */
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;

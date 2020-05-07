@@ -1,20 +1,87 @@
 - cache spree_nav_cache_key('footer') do
-  footer#footer.bg-quaternary.border-width-1.custom-border-color-grey.py-5
-    .container.container-xl
-      .row.justify-content-between
-        .col-auto
-          ul.social-icons.social-icons-clean.social-icons-icon-light
-            li.social-icons-facebook
-              a href="http://www.facebook.com/" target="_blank" title="Facebook" 
-                i.fab.fa-facebook-f
-            li.social-icons-twitter
-              a href="http://www.twitter.com/" target="_blank" title="Twitter" 
-                i.fab.fa-twitter
-            li.social-icons-linkedin
-              a href="http://www.linkedin.com/" target="_blank" title="Linkedin" 
-                i.fab.fa-linkedin-in
-        .col-auto.text-right
-          p.text-color-light.font-weight-light.opacity-8.mb-0 Copyrights © 2020 All Rights Reserved by Aelyon
+  footer#footer
+    .container.my-4.py-2
+      .row.py-4
+        .col-lg-4.text-center.text-lg-left
+          h5.text-4.text-color-light.mb-3 SUBSCRIBE NEWSLETTER
+          p.text-3.mb-0 Get all the latest informaton on Events, Sales and Offfers.
+          p.text-3.mb-0 Sign up for newsletter today.
+        .col-lg-5.text-center.text-lg-left.px-4.mt-1.mt-lg-3
+          .pt-1.pt-lg-3.mt-1
+            #newsletterSuccess.alert.alert-success.d-none
+              strong Success!
+              | You've been added to our email list.
+            #newsletterError.alert.alert-danger.d-none
+            form#newsletterForm.mw-100 action="php/newsletter-subscribe.php" method="POST" 
+              .input-group.input-group-rounded
+                input#newsletterEmail.form-control.form-control-sm.bg-light.px-4.text-3 name="newsletterEmail" placeholder=("Email Address...") type="text"
+                span.input-group-append
+                  button.btn.btn-primary.text-color-light.text-2.py-3.px-4 type="submit" 
+                    strong SUBSCRIBE!
+        .col-lg-3.text-center.text-lg-left
+          .pt-3.mt-1
+            ul.footer-social-icons.social-icons.social-icons-clean.social-icons-big.social-icons-opacity-light.social-icons-icon-light.mt-0.mt-lg-3
+              li.social-icons-facebook
+                a href="http://www.facebook.com/" target="_blank" title="Facebook" 
+                  i.fab.fa-facebook-f
+              li.social-icons-twitter
+                a href="http://www.twitter.com/" target="_blank" title="Twitter" 
+                  i.fab.fa-twitter
+              li.social-icons-linkedin
+                a href="http://www.linkedin.com/" target="_blank" title="Linkedin" 
+                  i.fab.fa-linkedin-in
+    .container.mt-4.pt-2.pb-5.footer-top-light-border
+      .row.py-4
+        .col-md-3.text-center.text-md-left
+          h5.text-4.text-color-light.mb-3.mt-4.mt-lg-0 CONTACT INFO
+          p.text-3.mb-0.text-color-light.opacity-7 ADDRESS
+          p.text-3.mb-3 1234 Laksamana Bintan, Batam Center.
+          p.text-3.mb-0.text-color-light.opacity-7 PHONE
+          p.text-3.mb-3 (0778) 456-789
+          p.text-3.mb-0.text-color-light.opacity-7 EMAIL
+          p.text-3.mb-0
+            a href="mailto:support@aelyon.com"  support@aelyon.com
+        .col-md-9.text-center.text-md-left
+          .row
+            .col-md-7.col-lg-5.mb-0
+              h5.text-4.text-color-light.mb-3.mt-4.mt-lg-0 MY ACCOUNT
+              .row
+                .col-md-5
+                  p.mb-1
+                    a.text-3.link-hover-style-1 href="#"  About us
+                  p.mb-1
+                    a.text-3.link-hover-style-1 href="#"  Contact Us
+                  p.mb-1
+                    a.text-3.link-hover-style-1 href="#"  My account
+                .col-md-5
+                  p.mb-1
+                    a.text-3.link-hover-style-1 href="#"  Orders history
+                  p.mb-1
+                    a.text-3.link-hover-style-1 href="#"  Advanced search
+                  p.mb-1
+                    a.text-3.link-hover-style-1 href="#"  Login
+            .col-md-5.col-lg-4
+              h5.text-4.text-color-light.mb-3.mt-4.mt-lg-0 MAIN FEATURES
+              p.mb-1
+                a.text-3.link-hover-style-1 href="#"  Super Fast Theme
+              p.mb-1
+                a.text-3.link-hover-style-1 href="#"  SEO Optmized
+              p.mb-1
+                a.text-3.link-hover-style-1 href="#"  RTL Support
+            .col-lg-3
+              p.mb-1.mt-lg-3.pt-lg-3
+                a.text-3 href=""  Powerful Admin Panel
+              p.mb-1
+                a.text-3.link-hover-style-1 href="#"  Mobile & Retina Optimized
+          .row.footer-top-light-border.mt-4.pt-4
+            .col-lg-5.text-center.text-md-left
+              p.text-2.mt-1 © Copyright 2020. All Rights Reserved.
+            .col-lg-3.text-center.text-md-left
+              p.text-3.mb-0.font-weight-semibold.text-color-light.opacity-8 BUSINESS HOURS
+              p.text-3.mb-0 Mon - Sun 9:00AM -8:00PM
+            .col-lg-4.text-center.text-md-left
+              img.img-fluid.mt-4.mt-lg-2 alt=("Payment icons") src="#{asset_path('img/payment-icon.png')}"
+
   / footer#footer.pt-2.mx-auto.border-top.footer-spree data-turbolinks-permanent="" 
   /   .container
   /     .row.d-xl-flex.justify-content-xl-around.pb-xl-5

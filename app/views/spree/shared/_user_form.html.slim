@@ -1,12 +1,12 @@
 .form-row
   .form-group.col
     = f.label :email, class:'font-weight-bold text-dark text-2'
-    = f.email_field :email, class: 'form-control form-control-lg'
+    = f.email_field :email, class: 'form-control'
 .form-row
   .form-group.col-lg-6
     = f.label :password, class:'font-weight-bold text-dark text-2'
-    = f.password_field :password, class: 'form-control form-control-lg'
+    = f.password_field :password, class: 'form-control'
   .form-group.col-lg-6
     = f.label :password_confirmation, class:'font-weight-bold text-dark text-2'
-    = f.password_field :password_confirmation, class: 'form-control form-control-lg'
+    = f.password_field :password_confirmation, class: 'form-control'
 div data-hook="signup_below_password_fields" 

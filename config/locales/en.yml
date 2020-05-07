@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      spree/department:
+        name: name
+  spree:
+    department: Department

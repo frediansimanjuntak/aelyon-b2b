@@ -787,10 +787,11 @@ Theme Version:	7.6.0
 /* Arrows */
 .arrow {
 	background: transparent image-url("img/arrows.png") no-repeat 0 0;
-	width: 47px;
-	height: 120px;
+	width: 12px;
+	height: 12px;
 	display: inline-block;
 	position: relative;
+	margin: 5px;
 }
 
 .arrow.arrow-light {

@@ -2,25 +2,9 @@
 .row
   .col-md-6
     .form-group
-      = f.field_container :company_id_type do
-        = f.label :company_id_type
-        = f.text_field :company_id_type, class: 'form-control'
-      = f.field_container :company_id do
-        = f.label :company_id
-        = f.text_field :company_id, class: 'form-control'
       = f.field_container :name do
         = f.label :name
         = f.text_field :name, class: 'form-control'
-      = field_container f.object, :state, class: ["form-group", "vendor-row"] do
-        = f.label :state_id, Spree.t(:state)
-        span id="b state" 
-          - if f.object.country.try(:states)
-            = f.text_field :state_name, style: "display: #{f.object.country.try(:states) && f.object.country.states.empty? ? 'block' : 'none' };", disabled: !(f.object.country.try(:states) && f.object.country.states.empty?), class: 'form-control state_name'
-            = f.collection_select :state_id, f.object.country.states.sort, :id, :name, { include_blank: true }, { class: 'select2', style: "display: #{ f.object.country.states.empty? ? 'none' : 'block' };", disabled: f.object.country.states.empty? }
-          - else
-            div
-              em No country set.
-        = error_message_on f.object, :state_id
   .col-md-6
     .form-group
       = f.field_container :about_us do

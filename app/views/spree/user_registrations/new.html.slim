@@ -12,6 +12,18 @@
                 #new-customer data-hook="login" 
                   = form_for resource, as: :spree_user, url: spree.registration_path do |f|
                     div data-hook="signup_inside_form" 
+                      .form-row
+                        .form-group.col
+                          = label_tag 'Company name', nil, class:'font-weight-bold text-dark text-2'
+                          = text_field_tag 'company_name', nil, class: 'form-control'
+                      .form-row
+                        .form-group.col-lg-6
+                          = label_tag 'Company Identity Type', nil, class:'font-weight-bold text-dark text-2'
+                          = select_tag "company_identity_type", options_for_select([ "KTP", "NPWP" ], "NPWP"), class: 'form-control'
+                          / = text_field_tag 'company_identity_type', nil, class: 'form-control form-control-lg'
+                        .form-group.col-lg-6
+                          = label_tag 'Company Identity Number', nil, class:'font-weight-bold text-dark text-2'
+                          = text_field_tag 'company_identity_number', nil, class: 'form-control'
                       = render partial: 'spree/shared/user_form', locals: { f: f, remember_me_field: true }
                       div
                     .form-row
