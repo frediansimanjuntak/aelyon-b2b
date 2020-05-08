@@ -83,5 +83,5 @@ test:
 production:
   <<: *default
   database: aelyon_production
-  username: aelyon
-  password: <%= ENV['aelyon_DATABASE_PASSWORD'] %>
+  username: <%= ENV['PRODUCTION_DATABASE_USERNAME'] %>
+  password: <%= ENV['PRODUCTION_DATABASE_PASSWORD'] %>
