@@ -2059,7 +2059,7 @@ window.theme.fn = {
 		},
 	    whiteboard: {
 	        movehand: {
-	            src: '../vendor/rs-plugin/revolution-addons/whiteboard/assets/images/hand_point_right.png',
+	            // src: '../vendor/rs-plugin/revolution-addons/whiteboard/assets/images/hand_point_right.png',
 	            width: 400,
 	            height: 1000,
 	            handtype: 'right',
@@ -2080,7 +2080,7 @@ window.theme.fn = {
 	            }
 	        },
 	        writehand: {
-	            src: '../vendor/rs-plugin/revolution-addons/whiteboard/assets/images/write_right_angle.png',
+	            // src: '../vendor/rs-plugin/revolution-addons/whiteboard/assets/images/write_right_angle.png',
 	            width: 572,
 	            height: 691,
 	            handtype: 'right',
@@ -2275,9 +2275,9 @@ window.theme.fn = {
 			}
 
 			// Addon Init - Filmstrip
-			if(this.options.addOnFilmstrip.enable) {
-				RsFilmstripAddOn($, this.options.wrapper, '../vendor/rs-plugin/revolution-addons/filmstrip/', false);
-			}
+			// if(this.options.addOnFilmstrip.enable) {
+			// 	RsFilmstripAddOn($, this.options.wrapper, '../vendor/rs-plugin/revolution-addons/filmstrip/', false);
+			// }
 
 			// Addon Init - Before After
 			if(this.options.addOnBeforeAfter.enable) {
