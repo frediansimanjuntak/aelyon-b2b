@@ -33,5 +33,8 @@ module AelyonB2b
 
     # config.load_defaults 6.0
     config.autoload = :classic
+
+
+    config.assets.compile = true
   end
 end
