@@ -1,0 +1,30 @@
+- @body_id = 'product-details'
+.container
+  = spree_breadcrumbs(@taxon, '', @product)
+- cache cache_key_for_product do
+  .container.pt-4.product-details
+    .row data-hook="product_show" 
+      = render partial: 'gallery'
+      .col-12.col-md-5 data-hook="product_right_part" 
+        #product-description data-hook="product_right_part_wrap" 
+          h1.mt-3.mt-md-0.text-center.text-md-left.product-details-title
+            = @product.name
+          #cart-form data-hook="cart_form" 
+            = render 'cart_form', variant_change_identifier: 'productCarousel'
+    .pb-4.pt-md-5.row data-hook="product_description" 
+      .col-12.col-md-7.col-lg-6
+        = render partial: 'description'
+      .d-none.d-lg-block.col-lg-1
+      .col-12.col-md-5 data-hook="product_properties" 
+        = render partial: 'properties'
+      .col-12 data-hook="promotions" 
+        = render partial: 'promotions'
+    #no-product-available.no-product-available-dropdown
+      = render partial: 'spree/shared/no_product_available'
+    = render partial: 'gallery_modal'
+  #related-products
+    = products_structured_data([@product])
+    
+    = render 'spree/shared/product_added_modal'
+    
+div data-related-products="" data-related-products-enabled=("#{@product.respond_to?(:has_related_products?)}") data-related-products-id=("#{@product.slug}") 
