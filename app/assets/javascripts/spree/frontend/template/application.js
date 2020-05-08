@@ -2,7 +2,6 @@
 //= require ./vendors/jquery.appear/jquery.appear.min
 //= require ./vendors/jquery.easing/jquery.easing.min
 //= require ./vendors/jquery.cookie/jquery.cookie.min
-//= require ./vendors/bootstrap/js/bootstrap.min
 //= require ./vendors/common/common.min
 //= require ./vendors/jquery.validation/jquery.validate.min
 //= require ./vendors/jquery.easy-pie-chart/jquery.easypiechart.min
