@@ -22,13 +22,15 @@
             .header-column.justify-content-end
               .header-row
                 ul.header-social-icons.social-icons.d-none.d-sm-block.social-icons-clean
-                  li.social-icons-facebook
+                  li
+                    | Hi, #{spree_current_user.email}
+                  / li.social-icons-facebook
                     a href="http://www.facebook.com/" target="_blank" title="Facebook" 
                       i.fab.fa-facebook-f
-                  li.social-icons-twitter
+                  / li.social-icons-twitter
                     a href="http://www.twitter.com/" target="_blank" title="Twitter" 
                       i.fab.fa-twitter
-                  li.social-icons-linkedin
+                  / li.social-icons-linkedin
                     a href="http://www.linkedin.com/" target="_blank" title="Linkedin" 
                       i.fab.fa-linkedin-in
       .header-container.container
@@ -79,7 +81,7 @@
                             = link_to Spree.t('nav_bar.log_out'), spree_logout_path, class: '', method: :get if defined?(spree_logout_path)
                   - else
                     - if defined?(spree_login_path)
-                      = link_to login_path do
+                      = link_to spree_login_path do
                         i.far.fa-user
                 //notification
                 .header-nav-feature.header-nav-features-notification.d-inline-flex.ml-4

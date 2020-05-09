@@ -65,23 +65,28 @@
           li.nav-item
             a.nav-link.text-dark.active href="#"  My Profile
           li.nav-item
-            a.nav-link href="#"  User Preferences
-          li.nav-item
-            a.nav-link href="#"  Billing
+            a.nav-link href="#"  My Office
           li.nav-item
             a.nav-link href="#"  Invoices
     .col-lg-9
       .overflow-hidden.mb-1
         h2.font-weight-normal.text-7.mb-0
-          strong.font-weight-extra-bold My
+          strong.font-weight-extra-bold My 
           | Profile
       .overflow-hidden.mb-4.pb-3
-        p.mb-0 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      form.needs-validation role="form" 
+        p.mb-0 Welcome to your profile, please complete your details.
+      = render partial: 'spree/shared/error_messages', locals: { target: @user }
+      = form_for Spree.user_class.new, as: @user, url: spree.user_path(@user), method: :put do |f|
+        = render partial: 'spree/shared/user_form', locals: { f: f, remember_me_field: false }
+        .form-row
+          .form-group.col-lg-4
+            = f.submit Spree.t(:update), class: 'btn btn-lg btn-block btn-primary text-uppercase font-weight-bold'
+
+      / form.needs-validation role="form" 
         .form-group.row
           label.col-lg-3.font-weight-bold.text-dark.col-form-label.form-control-label.text-2.required First name
           .col-lg-9
-            input.form-control required="" type="text" value="John"
+            input.form-control required="" type="text" value=""
         .form-group.row
           label.col-lg-3.font-weight-bold.text-dark.col-form-label.form-control-label.text-2.required Last name
           .col-lg-9
@@ -89,7 +94,7 @@
         .form-group.row
           label.col-lg-3.font-weight-bold.text-dark.col-form-label.form-control-label.text-2.required Email
           .col-lg-9
-            input.form-control required="" type="email" value="email@gmail.com"
+            input.form-control required="" type="email" value="#{@user.email}"
         .form-group.row
           label.col-lg-3.font-weight-bold.text-dark.col-form-label.form-control-label.text-2 Company
           .col-lg-9
