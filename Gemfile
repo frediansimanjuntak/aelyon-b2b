@@ -46,7 +46,7 @@ gem 'cocoon'
 gem 'aws-sdk-s3'
 
 #font-awesome
-gem 'font-awesome-rails'
+gem 'font-awesome-sass', '~> 5.12.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
