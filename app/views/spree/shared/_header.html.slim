@@ -18,9 +18,6 @@
                         | Mitra Aelyon
                     li.nav-item.nav-item-left-border.nav-item-left-border-remove.nav-item-left-border-sm-show
                       a.nav-link href="/" 
-                        | Promo
-                    li.nav-item.nav-item-left-border.nav-item-left-border-remove.nav-item-left-border-sm-show
-                      a.nav-link href="/" 
                         | Need help ?
             .header-column.justify-content-end
               .header-row
@@ -56,7 +53,7 @@
                               | Industrial Supply 
                           li
                             a.dropdown-item href="/products" 
-                              | Food abd Beverages        
+                              | Food and Beverages        
                       li
                         .nav-search
                           form action="page-search-results.html" method="get" role="search" 
@@ -68,22 +65,51 @@
                 button.btn.header-btn-collapse-nav data-target=(".header-nav-main nav") data-toggle="collapse" 
                   i.fas.fa-bars
               .header-nav-features.header-nav-features-no-border.header-nav-features-lg-show-border.order-1.order-lg-2.features-icon-nav
-                .header-nav-feature.header-nav-features-search.d-inline-flex
-                  .icon-feature
-                    - if try_spree_current_user
-                      - if spree.respond_to?(:account_path)
-                        = link_to spree.account_path do
-                          i.far.fa-user
-                    - else
-                      - if defined?(spree_login_path)
-                        = link_to login_path do
-                          i.far.fa-user
-                  .icon-feature
-                    a.header-nav-features-toggle href="#" 
-                      i.far.fa-bell
-                  .icon-feature
-                    a.header-nav-features-toggle href="#" 
-                      i.fas.fa-dolly-flatbed
+                //account
+                .header-nav-feature.header-nav-features-account.d-inline-flex.ml-2
+                  - if try_spree_current_user
+                    - if spree.respond_to?(:account_path)
+                      a.header-nav-features-toggle href="#" 
+                        i.far.fa-user
+                      #headerTopAccountDropdown.header-nav-features-dropdown
+                        ul
+                          li
+                            = link_to Spree.t('nav_bar.my_account'), spree.account_path, class: '' if spree.respond_to?(:account_path)
+                          li
+                            = link_to Spree.t('nav_bar.log_out'), spree_logout_path, class: '', method: :get if defined?(spree_logout_path)
+                  - else
+                    - if defined?(spree_login_path)
+                      = link_to login_path do
+                        i.far.fa-user
+                //notification
+                .header-nav-feature.header-nav-features-notification.d-inline-flex.ml-4
+                  a.header-nav-features-toggle href="#" 
+                    i.far.fa-bell
+                //cart
+                .header-nav-feature.header-nav-features-cart.d-inline-flex.ml-4
+                  a.header-nav-features-toggle href="#" 
+                    i.fas.fa-dolly-flatbed
+                  #headerTopCartDropdown.header-nav-features-dropdown
+                    ol.mini-products-list
+                      li.item
+                        a.product-image href="#" title=("Camera X1000") 
+                          img alt=("Camera X1000") src="#{asset_path('img/products/product-1.jpg')}"
+                        .product-details
+                          p.product-name
+                            a href="#"  Camera X1000
+                          p.qty-price
+                            | 1X
+                            span.price $890
+                          a.btn-remove href="#" title=("Remove This Item") 
+                            i.fas.fa-times
+                    .totals
+                      span.label Total:
+                      span.price-total
+                        span.price $890
+                    .actions
+                      a.btn.btn-dark href="#"  View Cart
+                      a.btn.btn-primary href="#"  Checkout
+
 
 
   

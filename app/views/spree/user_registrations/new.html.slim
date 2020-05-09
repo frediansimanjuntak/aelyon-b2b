@@ -32,8 +32,9 @@
                           input#terms.custom-control-input type="checkbox"
                           label.custom-control-label.text-2 for="terms" 
                             | I have read and agree to the
-                            a href="#"  terms of service
+                            a href="#"  terms of service                        
                       .form-group.col-lg-3
-                        = f.submit Spree.t(:sign_up), class: 'btn btn-primary btn-modern float-right'
+                        p.form-group Already have an account? Let's do #{link_to Spree.t(:login), login_path, class: ""}
+                        = f.submit Spree.t(:sign_up), class: 'btn btn-primary btn-block spree-btn text-uppercase mt-2', tabindex: 4
 
 

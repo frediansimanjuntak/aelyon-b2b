@@ -2059,7 +2059,7 @@ window.theme.fn = {
 		},
 	    whiteboard: {
 	        movehand: {
-	            // src: '../vendor/rs-plugin/revolution-addons/whiteboard/assets/images/hand_point_right.png',
+	            src: '../vendor/rs-plugin/revolution-addons/whiteboard/assets/images/hand_point_right.png',
 	            width: 400,
 	            height: 1000,
 	            handtype: 'right',
@@ -2080,7 +2080,7 @@ window.theme.fn = {
 	            }
 	        },
 	        writehand: {
-	            // src: '../vendor/rs-plugin/revolution-addons/whiteboard/assets/images/write_right_angle.png',
+	            src: '../vendor/rs-plugin/revolution-addons/whiteboard/assets/images/write_right_angle.png',
 	            width: 572,
 	            height: 691,
 	            handtype: 'right',
@@ -4297,9 +4297,9 @@ window.theme.fn = {
 						self.$wrapper.find('.dropdown, .dropdown-submenu').removeClass('dropdown-reverse');
 
 						self.$wrapper.find('.dropdown:not(.manual):not(.dropdown-mega), .dropdown-submenu:not(.manual)').each(function() {
-							if(!$(this).find('.dropdown-menu').visible( false, true, 'horizontal' )  ) {
-								$(this).addClass('dropdown-reverse');
-							}
+							// if(!$(this).find('.dropdown-menu').visible( false, true, 'horizontal' )  ) {
+							// 	$(this).addClass('dropdown-reverse');
+							// }
 						});
 					}
 
