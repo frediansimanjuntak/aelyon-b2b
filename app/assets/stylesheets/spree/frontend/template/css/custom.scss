@@ -21,6 +21,12 @@
   border-radius: 25px;
 }
 
+.header-row p {
+  top: 10px;
+  position: relative;
+  font-size: 12px;
+}
+
 @media (max-width: 1200px) {
 	.nav-search {
     width: 350px;

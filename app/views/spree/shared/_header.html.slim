@@ -12,18 +12,22 @@
                   ul.nav.nav-pills
                     li.nav-item.nav-item-anim-icon
                       a.nav-link.pl-0 href="/" 
-                        | Tentang Aelyon
+                        | About Aelyon
                     li.nav-item.nav-item-left-border.nav-item-left-border-remove.nav-item-left-border-sm-show
                       a.nav-link href="/" 
-                        | Mitra Aelyon
+                        | Aelyon's Partners
                     li.nav-item.nav-item-left-border.nav-item-left-border-remove.nav-item-left-border-sm-show
                       a.nav-link href="/" 
-                        | Need help ?
+                        | Need help?
             .header-column.justify-content-end
               .header-row
-                ul.header-social-icons.social-icons.d-none.d-sm-block.social-icons-clean
+                - if try_spree_current_user
+                  p Hi, #{spree_current_user.email}
+                - else 
+                  p Welcome to Aelyon, Let's #{link_to Spree.t(:register), spree_signup_path} your office
+                / ul.header-social-icons.social-icons.d-none.d-sm-block.social-icons-clean
                   li
-                    | Hi, #{spree_current_user.email}
+                    
                   / li.social-icons-facebook
                     a href="http://www.facebook.com/" target="_blank" title="Facebook" 
                       i.fab.fa-facebook-f
