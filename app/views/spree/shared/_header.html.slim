@@ -11,14 +11,11 @@
                 nav.header-nav-top
                   ul.nav.nav-pills
                     li.nav-item.nav-item-anim-icon
-                      a.nav-link.pl-0 href="/" 
-                        | About Aelyon
+                      = link_to Spree.t(:about_aelyon), root_path, class:"nav-link.pl-0", 'data-no-turbolink': true, method: "get"
                     li.nav-item.nav-item-left-border.nav-item-left-border-remove.nav-item-left-border-sm-show
-                      a.nav-link href="/" 
-                        | Aelyon's Partners
+                      = link_to Spree.t(:aelyon_partner), root_path, class:"nav-link.pl-0", 'data-no-turbolink': true, method: "get"
                     li.nav-item.nav-item-left-border.nav-item-left-border-remove.nav-item-left-border-sm-show
-                      a.nav-link href="/" 
-                        | Need help?
+                      = link_to Spree.t(:need_help), root_path, class:"nav-link.pl-0", 'data-no-turbolink': true, method: "get"
             .header-column.justify-content-end
               .header-row
                 - if try_spree_current_user
@@ -42,7 +39,7 @@
           .header-column
             .header-row
               .header-logo
-                a href="/" 
+                = link_to root_path, 'data-no-turbolink': true, method: "get" do
                   img alt="Porto" data-sticky-height="40" data-sticky-width="150" height="48" src="#{asset_path('img/aelyon-logo-dark.png')}" width="180"
           .header-column.justify-content-end
             .header-row               

@@ -37,3 +37,6 @@ en:
         name: name
   spree:
     department: Department
+    about_aelyon: About Aelyon
+    aelyon_partner: Aelyon's partner
+    need_help: Need help?

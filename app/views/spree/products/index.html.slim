@@ -11,7 +11,7 @@ div data-hook="search_results"
         .plp-results-text.text-uppercase.mx-md-auto.py-md-5
           = "#{@products.total_count} #{Spree.t('plp.results_for')} '#{params[:keywords].upcase}'"
     - elsif not @taxon
-      section.page-header.page-header-modern.page-header-background.page-header-background-md.py-0.overlay.overlay-color-primary.overlay-show.overlay-op-8 style=("background-image: url(img/page-header/page-header-background-2.jpg);") 
+      section.page-header.page-header-modern.page-header-background.page-header-background-md.py-0.overlay.overlay-color-primary.overlay-show.overlay-op-8 style=("background-image: #{asset_path('img/page-header/page-header-background-2.jpg')};") 
         .container
           .row
             .col-sm-5.order-2.order-sm-1.align-self-center.p-static

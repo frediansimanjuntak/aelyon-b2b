@@ -7,5 +7,6 @@ meta content="width=device-width, initial-scale=1" name="viewport"
 = stylesheet_link_tag 'spree/frontend/all', media: 'screen', 'data-turbolinks-track': 'reload'
 = csrf_meta_tags
 = render 'spree/shared/paths'
-= javascript_include_tag 'spree/frontend/all', defer: true, 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'spree/frontend/frontend-head', 'data-turbolinks-track': 'reload'
+
 = yield :head
