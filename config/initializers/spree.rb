@@ -13,6 +13,13 @@ Spree.config do |config|
   # Example:
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
+  
+  # Logo for frontend
+  config.logo = 'logos/aelyon-logo-dark.png'
+  # Logo for backend
+  config.admin_interface_logo = 'logos/aelyon-logo-dark.png'
+  # Show Spree version number
+  config.admin_show_version = false
 end
 
 # Configure Spree Dependencies

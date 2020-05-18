@@ -13,5 +13,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
-Rails.application.config.assets.precompile += %w( spree/frontend/frontend-footer.js )
-Rails.application.config.assets.precompile += %w( spree/frontend/frontend-head.js )
+Rails.application.config.assets.precompile += %w( spree/frontend/application.js )

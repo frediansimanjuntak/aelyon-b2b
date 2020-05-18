@@ -42,7 +42,7 @@
                       .form-group.col
                         = label_tag 'Phone Number', nil, class:'font-weight-bold text-dark text-2'
                         = text_field_tag 'phone_number', nil, class: 'form-control'
-                  input.next.action-button name="next" type="button" value=("Next Step")                  
+                  input.next.action-button name="next" type="button" value=("Next Step")  class="btn btn-primary spree-btn text-uppercase mt-2 mr-5"                 
                   = link_to Spree.t(:cancel), spree_signup_path, class:"btn btn-primary spree-btn text-uppercase mt-2", 'data-no-turbolink': true, method: "get"
                 fieldset
                   .form-card
@@ -59,15 +59,15 @@
                       .form-group.col-lg-6
                         = label_tag 'Company Identity Number', nil, class:'font-weight-bold text-dark text-2'
                         = text_field_tag 'company_identity_number', nil, class: 'form-control'
-                  input.previous.action-button-previous name="previous" type="button" value="Previous"
-                  input.next.action-button name="next" type="button" value=("Next Step")                
+                  input.previous.action-button-previous name="previous" type="button" value="Previous" class="btn btn-primary spree-btn text-uppercase mt-2 mr-5"
+                  input.next.action-button name="next" type="button" value=("Next Step") class="btn btn-primary spree-btn text-uppercase mt-2 mr-5"               
                   = link_to Spree.t(:cancel), spree_signup_path, class:"btn btn-primary spree-btn text-uppercase mt-2", 'data-no-turbolink': true, method: "get"
                 fieldset
                   .form-card
                     h2.fs-title Security Information
                     = render partial: 'spree/shared/user_form', locals: { f: f, remember_me_field: true }
-                  input.previous.action-button-previous name="previous" type="button" value="Previous"
-                  input.next.action-button name="make_payment" type="button" value="Confirm"                
+                  input.previous.action-button-previous name="previous" type="button" value="Previous" class="btn btn-primary spree-btn text-uppercase mt-2 mr-5"
+                  input.next.action-button name="make_payment" type="button" value="Confirm" class="btn btn-primary spree-btn text-uppercase mt-2 mr-5"              
                   = link_to Spree.t(:cancel), spree_signup_path, class:"btn btn-primary spree-btn text-uppercase mt-2", 'data-no-turbolink': true, method: "get"
                 fieldset
                   .form-card

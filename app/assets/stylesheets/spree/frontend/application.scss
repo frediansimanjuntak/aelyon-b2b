@@ -53,3 +53,16 @@
 @import "spree/frontend/views/spree/shared/color_select";
 @import "spree/frontend/views/spree/shared/dropdown";
 @import "spree/frontend/views/spree/shared/delete_address_popup";
+
+// Add other css
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+@import "spree/frontend/customs/spree/layouts/theme";
+@import "spree/frontend/customs/spree/layouts/theme-elements";
+@import "spree/frontend/customs/spree/layouts/spree_application";
+@import "spree/frontend/customs/spree/layouts/buttons";
+@import "spree/frontend/customs/spree/layouts/sections";
+@import "spree/frontend/customs/spree/layouts/form_wizard";
+@import "spree/frontend/customs/spree/layouts/skin";
+@import "spree/frontend/customs/spree/layouts/utilities";

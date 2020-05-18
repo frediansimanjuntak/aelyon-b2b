@@ -1,1 +1,0 @@
-//= require ./vendors/modernizr/modernizr.min
