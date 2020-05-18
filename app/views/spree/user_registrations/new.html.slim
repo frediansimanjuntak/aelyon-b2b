@@ -1,40 +1,16 @@
 - @body_id = 'signup'
 .container
-  .row
-    .col
-      .featured-boxes
-        .row
-          .col-md-12
-            = render partial: 'spree/shared/error_messages', locals: { target: @user }
-            .featured-box.featured-box-primary.text-left.mt-5
-              .box-content
-                h4.color-primary.font-weight-semibold.text-4.text-uppercase.mb-3 Register An Account
-                #new-customer data-hook="login" 
-                  = form_for resource, as: :spree_user, url: spree.registration_path do |f|
-                    div data-hook="signup_inside_form" 
-                      .form-row
-                        .form-group.col
-                          = label_tag 'Company name', nil, class:'font-weight-bold text-dark text-2'
-                          = text_field_tag 'company_name', nil, class: 'form-control'
-                      .form-row
-                        .form-group.col-lg-6
-                          = label_tag 'Company Identity Type', nil, class:'font-weight-bold text-dark text-2'
-                          = select_tag "company_identity_type", options_for_select([ "KTP", "NPWP" ], "NPWP"), class: 'form-control'
-                          / = text_field_tag 'company_identity_type', nil, class: 'form-control form-control-lg'
-                        .form-group.col-lg-6
-                          = label_tag 'Company Identity Number', nil, class:'font-weight-bold text-dark text-2'
-                          = text_field_tag 'company_identity_number', nil, class: 'form-control'
-                      = render partial: 'spree/shared/user_form', locals: { f: f, remember_me_field: true }
-                      div
-                    .form-row
-                      .form-group.col-lg-9
-                        .custom-control.custom-checkbox
-                          input#terms.custom-control-input type="checkbox"
-                          label.custom-control-label.text-2 for="terms" 
-                            | I have read and agree to the
-                            a href="#"  terms of service                        
-                      .form-group.col-lg-3
-                        p.form-group Already have an account? Let's do #{link_to Spree.t(:login), login_path, class: ""}
-                        = f.submit Spree.t(:sign_up), class: 'btn btn-primary btn-block spree-btn text-uppercase mt-2', tabindex: 4
-
-
+  .register-button
+    .row.mt-5
+      .col-md-12.text-center
+        h3.text-uppercase Identity yourself as
+    .row
+      .col-md-6
+        = link_to Spree.t(:personal_use), signup_user_personal_path, class:"btn btn-primary btn-block spree-btn text-uppercase btn-registrasi mt-2", 'data-no-turbolink': true, method: "get"
+      .col-md-6
+        = link_to Spree.t(:company_use), signup_user_company_path, class:"btn btn-primary btn-block spree-btn text-uppercase btn-registrasi mt-2", 'data-no-turbolink': true, method: "get"
+        / = button_tag 'Company Use', type: 'button', class: 'btn btn-primary btn-block spree-btn text-uppercase btn-registrasi mt-2 register-company'
+  / .register-personal-form    
+  /   = render partial: 'spree/user_registrations/register_personal_form'
+  / .register-company-form    
+  /   = render partial: 'spree/user_registrations/register_company_form'

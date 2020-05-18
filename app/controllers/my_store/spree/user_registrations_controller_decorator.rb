@@ -26,6 +26,24 @@ module MyStore
         end
       end
 
+      def new_user_company
+        build_resource({})
+        respond_with self.resource
+      end
+
+      def create_user_company
+        
+      end
+
+      def new_user_personal
+        build_resource({})
+        respond_with self.resource
+      end
+
+      def create_user_personal
+        
+      end
+
       private
       def create_vendor
         vendor = ::Spree::Vendor.create(name: params[:company_name])

@@ -1,0 +1,53 @@
+.row
+  .col
+    .featured-boxes
+      .row
+        .col-md-12
+          = render partial: 'spree/shared/error_messages', locals: { target: @user }
+          .featured-box.featured-box-primary.text-left.mt-5
+            .box-content
+              h4.color-primary.font-weight-semibold.text-4.text-uppercase.mb-3 Register A Personal Account
+              #new-customer data-hook="login" 
+                = form_for resource, as: :spree_user, url: spree.registration_path do |f|
+                  div data-hook="signup_inside_form" 
+                    .form-row
+                      .form-group.col
+                        = label_tag 'Full name', nil, class:'font-weight-bold text-dark text-2'
+                        = text_field_tag 'full_name', nil, class: 'form-control'
+                    .form-row
+                      .form-group.col-lg-6
+                        = label_tag 'Identity Type', nil, class:'font-weight-bold text-dark text-2'
+                        = select_tag "identity_type", options_for_select([ "KTP", "NPWP" ], "NPWP"), class: 'form-control'
+                      .form-group.col-lg-6
+                        = label_tag 'Identity Number', nil, class:'font-weight-bold text-dark text-2'
+                        = text_field_tag 'identity_number', nil, class: 'form-control'
+                    .form-row
+                      .form-group.col
+                        = label_tag 'Address', nil, class:'font-weight-bold text-dark text-2'
+                        = text_field_tag 'address', nil, class: 'form-control'
+                    .form-row
+                      .form-group.col
+                        = label_tag 'Phone Number', nil, class:'font-weight-bold text-dark text-2'
+                        = text_field_tag 'phone_number', nil, class: 'form-control'
+                    .form-row
+                      .form-group.col
+                        = label_tag 'Business Category', nil, class:'font-weight-bold text-dark text-2'
+                        = select_tag "business_category", options_for_select([ "Electronic", "Garment", "Food and Baverages"]), class: 'form-control'
+                    = render partial: 'spree/shared/user_form', locals: { f: f, remember_me_field: true }
+                    div
+                  .form-row
+                    .form-group.col-lg-8
+                      .custom-control.custom-checkbox
+                        input#terms.custom-control-input type="checkbox"
+                        label.custom-control-label.text-2 for="terms" 
+                          | I have read and agree to the
+                          a href="#"  terms of service                        
+                    .form-group.col-lg-4
+                      .row.col-lg-12
+                        label.text-2 for="terms" 
+                          | Already have an account? Let's do #{link_to Spree.t(:login), login_path, class: ""}
+                      .row
+                        .col-lg-6                                     
+                          = link_to Spree.t(:cancel), spree_signup_path, class:"btn btn-primary btn-block spree-btn text-uppercase mt-2 register-cancel", 'data-no-turbolink': true, method: "get"
+                        .col-lg-6
+                          = f.submit Spree.t(:sign_up), class: 'btn btn-primary btn-block spree-btn text-uppercase mt-2', tabindex: 4

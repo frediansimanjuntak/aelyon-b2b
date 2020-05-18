@@ -12,6 +12,14 @@ Rails.application.routes.draw do
   Spree::Core::Engine.add_routes do
     namespace :admin, path: Spree.admin_path do
       resources :departments
+
+    end
+
+    devise_scope :spree_user do
+      get '/signup/user/company' => 'user_registrations#new_user_company', :as => :signup_user_company
+      post '/signup/user/company' => 'user_registrations#create_user_company', :as => :registration_user_company
+      get '/signup/user/personal' => 'user_registrations#new_user_personal', :as => :signup_user_personal
+      post '/signup/user/personal' => 'user_registrations#create_user_personal', :as => :registration_user_personal
     end
   end
 end
