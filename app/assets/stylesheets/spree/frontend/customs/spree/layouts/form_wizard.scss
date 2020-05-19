@@ -1,3 +1,4 @@
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
 #msform {
   position: relative;
   margin-top: 20px
@@ -96,23 +97,23 @@ select.list-dt:focus {
 }
 
 #progressbar #account:before {
-  font-family: FontAwesome;
-  content: "\f023"
+  font-family: "Font Awesome 5 Free";
+   content: "\f007";
 }
 
 #progressbar #personal:before {
-  font-family: FontAwesome;
-  content: "\f007"
+  font-family: "Font Awesome 5 Free";
+  content: "\f1ad";
 }
 
 #progressbar #payment:before {
-  font-family: FontAwesome;
-  content: "\f09d"
+  font-family: "Font Awesome 5 Free";
+  content: "\f2c1";
 }
 
 #progressbar #confirm:before {
-  font-family: FontAwesome;
-  content: "\f00c"
+  font-family: "Font Awesome 5 Free";
+  content: "\f058";
 }
 
 #progressbar li:before {
