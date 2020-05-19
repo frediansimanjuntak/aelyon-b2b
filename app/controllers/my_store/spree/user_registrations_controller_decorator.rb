@@ -6,8 +6,10 @@ module MyStore
         # render json: params.to_json 
         @user = build_resource(spree_user_params)
         resource_saved = resource.save
-        # Create vendor
-        create_vendor
+        if (params[:form_type] == "company")
+          # Create vendor
+          create_vendor
+        end
         yield resource if block_given?
         if resource_saved
           if resource.active_for_authentication?
@@ -22,7 +24,13 @@ module MyStore
           end
         else
           clean_up_passwords(resource)
-          render :new
+          if (params[:form_type] == "company")
+            render :new_user_company
+          elsif (params[:form_type] == "personal")
+            render :new_user_personal
+          else
+            render :new
+          end
         end
       end
 

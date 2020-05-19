@@ -10,6 +10,7 @@
               #new-customer data-hook="login" 
                 = form_for resource, as: :spree_user, url: spree.registration_path do |f|
                   div data-hook="signup_inside_form" 
+                    = hidden_field_tag 'form_type', 'personal'
                     .form-row
                       .form-group.col
                         = label_tag 'Full name', nil, class:'font-weight-bold text-dark text-2'

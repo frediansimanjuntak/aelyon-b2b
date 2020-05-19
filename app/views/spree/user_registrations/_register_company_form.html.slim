@@ -3,12 +3,14 @@
   .container-fluid
     .row.justify-content-center.mt-0
       .col-lg-12.text-center.p-0.mt-3.mb-2
+        = render partial: 'spree/shared/error_messages', locals: { target: @user }
         .card.px-0.pt-4.pb-0.mt-3.mb-3
           h2
             strong Register A Company Account
           .row
             .col-md-12.mx-0
               = form_for resource, as: :spree_user, url: spree.registration_path, html: {id: "msform"} do |f|
+                = hidden_field_tag 'form_type', 'company'
                 /! progressbar
                 ul#progressbar
                   li#account.active
@@ -67,7 +69,8 @@
                     h2.fs-title Security Information
                     = render partial: 'spree/shared/user_form', locals: { f: f, remember_me_field: true }
                   input.previous.action-button-previous name="previous" type="button" value="Previous" class="btn btn-primary spree-btn text-uppercase mt-2 mr-5"
-                  input.next.action-button name="make_payment" type="button" value="Confirm" class="btn btn-primary spree-btn text-uppercase mt-2 mr-5"              
+                  = f.submit "Confirm", class: 'btn btn-primary spree-btn text-uppercase mt-2 mr-5', tabindex: 4
+                  / input.next.action-button name="make_payment" type="button" value="Confirm" class="btn btn-primary spree-btn text-uppercase mt-2 mr-5"              
                   = link_to Spree.t(:cancel), spree_signup_path, class:"btn btn-primary spree-btn text-uppercase mt-2", 'data-no-turbolink': true, method: "get"
                 fieldset
                   .form-card
