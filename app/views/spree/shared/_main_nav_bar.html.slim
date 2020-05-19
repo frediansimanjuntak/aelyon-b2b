@@ -9,7 +9,7 @@
               .category-links
                 - if root[:title].present?
                   .category-links-header.text-uppercase
-                    = root[:title]
+                    = link_to root[:title], root[:url], class: "category-links-title"
                 ul.pl-0
                   - root[:items].each do |item|
                     li

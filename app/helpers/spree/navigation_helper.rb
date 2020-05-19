@@ -5,7 +5,7 @@ module Spree
     def spree_navigation_data
       taxon_arr = Array.new()
       taxon_category = Spree::Taxon.find_by(name: "Categories")
-      taxons = Spree::Taxon.where(parent_id: taxon_category.id)
+      taxons = Spree::Taxon.where(parent_id: taxon_category.id, hide_from_nav: false)
 
       taxons.each do |taxon|
         taxon_object = {
@@ -41,7 +41,7 @@ module Spree
     end
 
     def navigation_child(taxon)
-      taxons = Spree::Taxon.where(parent_id: taxon.id)
+      taxons = Spree::Taxon.where(parent_id: taxon.id, hide_from_nav: false)
       taxon_arr = Array.new()
 
       taxons.each do |taxon|
