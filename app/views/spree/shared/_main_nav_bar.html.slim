@@ -5,11 +5,15 @@
       .w-100.shadow.main-nav-bar-category-dropdown
         .container.p-0.d-flex.justify-content-xl-around.mx-auto
           .row
-            .category-links
-              ul.pl-0
-                - spree_navigation_data.each do |root|
-                  li
-                    = link_to root[:title], root[:url], class: "text-uppercase main-nav-bar-category-links"
+            - spree_navigation_data.each do |root|
+              .category-links
+                - if root[:title].present?
+                  .category-links-header.text-uppercase
+                    = root[:title]
+                ul.pl-0
+                  - root[:items].each do |item|
+                    li
+                      = link_to item[:title], item[:url], class: "text-uppercase main-nav-bar-category-links"
     li.navbar.main-nav-bar-dropdown.main-nav-bar-category
       .nav-search
         form action="page-search-results.html" method="get" role="search" 

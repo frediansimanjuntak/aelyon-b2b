@@ -31,8 +31,7 @@ $(document).on("turbolinks:load",function(){
       });
     });
   
-    $(".previous").click(function(){
-  
+    $(".previous").click(function(){  
       current_fs = $(this).parent();
       previous_fs = $(this).parent().prev();
   
