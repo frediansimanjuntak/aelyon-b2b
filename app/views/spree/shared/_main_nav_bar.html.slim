@@ -1,10 +1,26 @@
 - if spree_navigation_data.any?
-  ul.nav.h-100.main-nav-bar
-    li.navbar.main-nav-bar-dropdown.main-nav-bar-category
+  ul.nav.h-100
+    li.navbar.dropdown
+      a.dropdown-toggle aria-expanded="true" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
+        span.nav-label Categories
+        span.caret
+      ul.dropdown-menu.animate.slideIn
+        - spree_navigation_data.each do |root|
+          li.dropdown-submenu
+            - if root[:title].present?
+              a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#{root[:url]}" role="button" 
+                span.nav-label = root[:title]
+                span.caret
+              ul.dropdown-menu
+                - root[:items].each do |item|
+                  li
+                    = link_to item[:title], item[:url]
+
+    / li.navbar.main-nav-bar-dropdown.main-nav-bar-category
       | Categories
       .w-100.shadow.main-nav-bar-category-dropdown
         .container.p-0.d-flex.justify-content-xl-around.mx-auto
-          .row
+          .row                  
             - spree_navigation_data.each do |root|
               .category-links
                 - if root[:title].present?
@@ -14,7 +30,7 @@
                   - root[:items].each do |item|
                     li
                       = link_to item[:title], item[:url], class: "text-uppercase main-nav-bar-category-links"
-    li.navbar.main-nav-bar-dropdown.main-nav-bar-category
+    li.navbar.main-nav-bar-category
       .nav-search
         form action="page-search-results.html" method="get" role="search" 
           .simple-search.input-group

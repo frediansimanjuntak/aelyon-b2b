@@ -25,8 +25,8 @@
 @import "spree/frontend/views/spree/shared/header";
 @import "spree/frontend/views/spree/shared/login";
 @import "spree/frontend/views/spree/shared/nav_bar";
-@import "spree/frontend/views/spree/shared/order_details";
 @import "spree/frontend/views/spree/shared/main_nav_bar";
+@import "spree/frontend/views/spree/shared/order_details";
 @import "spree/frontend/views/spree/errors/not_found";
 @import "spree/frontend/views/spree/shared/carousel/thumbnails";
 @import "spree/frontend/views/spree/shared/carousel/single";
@@ -66,3 +66,4 @@
 @import "spree/frontend/customs/spree/layouts/form_wizard";
 @import "spree/frontend/customs/spree/layouts/skin";
 @import "spree/frontend/customs/spree/layouts/utilities";
+@import "spree/frontend/customs/spree/layouts/dropdown";
