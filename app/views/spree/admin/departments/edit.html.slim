@@ -1,0 +1,7 @@
+- content_for :page_title do
+  | #{link_to Spree.t(:departments), admin_departments_url} #{@department.name}
+= render partial: 'spree/admin/shared/error_messages', locals: { target: @department }
+= form_for [:admin, @department] do |f|
+  fieldset
+    = render partial: 'form', locals: { f: f }
+    = render partial: 'spree/admin/shared/edit_resource_links'

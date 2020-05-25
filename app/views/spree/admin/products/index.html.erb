@@ -8,33 +8,40 @@
 
 <% content_for :table_filter do %>
   <div data-hook="admin_products_sidebar">
-
     <%= search_form_for [:admin, @search] do |f| %>
       <%- locals = {f: f} %>
       <div data-hook="admin_products_index_search" class="row">
-        <div class="col-12 col-lg-6">
+        <div class="col-md-6">
           <div class="form-group">
             <%= f.label :name_cont, Spree.t(:name) %>
-            <%= f.text_field :name_cont, size: 15, class: "form-control js-quick-search-target js-filterable" %>
+            <%= f.text_field :name_cont, size: 15, class: "form-control js-quick-search-target" %>
           </div>
         </div>
-        <div class="col-12 col-lg-6">
+        <div class="col-md-6">
           <div class="form-group">
             <%= f.label :variants_including_master_sku_cont, Spree.t(:sku) %>
-            <%= f.text_field :variants_including_master_sku_cont, size: 15, class: "form-control js-filterable" %>
+            <%= f.text_field :variants_including_master_sku_cont, size: 15, class: "form-control" %>
           </div>
         </div>
-        <div class="col-12">
-          <div class="field checkbox mb-2">
+        <% if current_spree_user.respond_to?(:has_spree_role?) && current_spree_user.has_spree_role?(:admin) %>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :vendor_name_cont, Spree.t(:vendor_name) %>
+              <%= f.text_field :vendor_name_cont, class: "form-control" %>
+            </div>
+          </div>
+        <% end %>
+        <div class="col-md-12">
+          <div class="field checkbox">
             <label>
-              <%= f.check_box :deleted_at_null, {checked: params[:q][:deleted_at_null] == '0'}, '0', '1' %>
+              <%= f.check_box :deleted_at_null, { checked: params[:q][:deleted_at_null] == '0' }, '0', '1' %>
               <%= Spree.t(:show_deleted) %>
             </label>
           </div>
 
-          <div class="field checkbox mb-2">
+          <div class="field checkbox">
             <label>
-              <%= f.check_box :not_discontinued, {checked: params[:q][:not_discontinued] == '0'}, '0', '1' %>
+              <%= f.check_box :not_discontinued, { checked: params[:q][:not_discontinued] == '0' }, '0', '1' %>
               <%= Spree.t(:show_discontinued ) %>
             </label>
           </div>
@@ -57,10 +64,14 @@
         <th><%= Spree.t(:sku) %></th>
         <th><%= Spree.t(:status) %></th>
 
-        <th colspan="2"><%= sort_link @search,:name, Spree.t(:name), { default_order: "desc" }, {title: 'admin_products_listing_name_title'} %></th>
+        <th colspan="2"><%= sort_link @search,:name, Spree.t(:name), { default_order: "desc" }, { title: 'admin_products_listing_name_title' } %></th>
         <th class="text-center">
-          <%= sort_link @search, :master_default_price_amount, Spree.t(:master_price), {}, {title: 'admin_products_listing_price_title'} %>
+          <%= sort_link @search, :master_default_price_amount, Spree.t(:master_price), {}, { title: 'admin_products_listing_price_title' } %>
         </th>
+        <% if current_spree_user.respond_to?(:has_spree_role?) && current_spree_user.has_spree_role?(:admin) %>
+          <th><%= Spree.t(:vendor_name) %>
+        <% end %>
+
         <th data-hook="admin_products_index_header_actions" class="actions"></th>
       </tr>
     </thead>
@@ -72,6 +83,9 @@
             <td class="image"><%= mini_image product %></td>
             <td><%= link_to product.try(:name), edit_admin_product_path(product) %></td>
             <td class="text-center"><%= product.display_price.to_html rescue '' %></td>
+            <% if current_spree_user.respond_to?(:has_spree_role?) && current_spree_user.has_spree_role?(:admin) %>
+              <td><%= product.vendor.try(:name) %>
+            <% end %>
             <td class="actions actions-3 text-right" data-hook="admin_products_index_row_actions">
               <%= link_to_edit product, no_text: true, class: 'edit' if can?(:edit, product) && !product.deleted? %>
               <%= link_to_clone product, no_text: true, class: 'clone' if can?(:clone, product) %>
@@ -84,7 +98,7 @@
 <% else %>
   <div class="alert alert-info no-objects-found">
     <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::Product)) %>,
-    <%= link_to Spree.t(:add_one), new_object_url if can?(:create, Spree::Product) %>!
+    <%= link_to Spree.t(:add_one), new_object_url %>!
   </div>
 <% end %>
 
