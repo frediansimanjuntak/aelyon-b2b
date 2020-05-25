@@ -32,7 +32,7 @@
                     .form-row
                       .form-group.col-lg-6
                         = label_tag 'Identity Type', nil, class:'font-weight-bold text-dark text-2'
-                        = select_tag "identity_type", options_for_select([ "KTP", "NPWP" ], "NPWP"), class: 'form-control'
+                        = select_tag "identity_type", options_for_select([ "ID", "TAX ID", "PASSPORT", "VISA" ], "TAX ID"), class: 'form-control'
                       .form-group.col-lg-6
                         = label_tag 'Identity Number', nil, class:'font-weight-bold text-dark text-2'
                         = text_field_tag 'identity_number', nil, class: 'form-control'
