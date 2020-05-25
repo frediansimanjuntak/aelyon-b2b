@@ -1,0 +1,22 @@
+- content_for :page_title do
+  = Spree.t(:job_descriptions)
+- if can? :create, Spree::JobDescription
+- content_for :page_actions do
+  = button_link_to Spree.t(:new_job_description), new_object_url, class: "btn-success", icon: 'add', id: 'admin_new_job_description_link'
+- if @job_descriptions.any?
+  table.table
+    thead
+      tr data-hook="admin_job_descriptions_index_headers" 
+        th= Spree.t(:job_description_id)
+        th= Spree.t(:department)
+        th.actions
+    tbody
+      - @job_descriptions.each do |job_description|
+        tr data-hook="admin_job_descriptions_index_rows" id=("#{spree_dom_id job_description}") 
+          td= job_description.name
+          td= job_description.department.name
+          td.actions.text-right
+            | #{link_to_edit(job_description, no_text: true) if can? :edit, job_description} #{link_to_delete(job_description, no_text: true) if can? :destroy, job_description}
+- else
+  .alert.alert-warning
+    | #{Spree.t(:no_resource_found, resource: plural_resource_name(Spree::JobDescription))} #{link_to(Spree.t(:add_one), new_object_url) if can? :create, Spree::JobDescription}

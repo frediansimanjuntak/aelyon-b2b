@@ -1,0 +1,8 @@
+= render partial: 'spree/admin/shared/error_messages', locals: { target: @job_description }
+- content_for :page_title do
+  | #{link_to Spree.t(:job_descriptions), admin_job_descriptions_url} #{Spree.t(:new_job_description)}
+= form_for [:admin, @job_description] do |f|
+  fieldset data-hook="new_job_description" 
+    = render partial: 'form', locals: { f: f }
+    .form-actions
+      = render partial: 'spree/admin/shared/new_resource_links'

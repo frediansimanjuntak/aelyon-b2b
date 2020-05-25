@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_04_144156) do
+ActiveRecord::Schema.define(version: 2020_05_25_051751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -231,6 +231,17 @@ ActiveRecord::Schema.define(version: 2020_05_04_144156) do
     t.index ["original_return_item_id"], name: "index_spree_inventory_units_on_original_return_item_id"
     t.index ["shipment_id"], name: "index_inventory_units_on_shipment_id"
     t.index ["variant_id"], name: "index_inventory_units_on_variant_id"
+  end
+
+  create_table "spree_job_descriptions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "model_type"
+    t.json "permission"
+    t.boolean "activated", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.uuid "department_id", default: -> { "gen_random_uuid()" }, null: false
+    t.index ["department_id"], name: "index_spree_job_descriptions_on_department_id"
   end
 
   create_table "spree_line_items", id: :serial, force: :cascade do |t|
