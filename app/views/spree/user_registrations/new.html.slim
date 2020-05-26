@@ -2,15 +2,16 @@
 .container
   .register-button
     .row.mt-5
-      .col-md-12.text-center
-        h3.text-uppercase Identity yourself as
+      .col-md-12.text-center.register-head
+        h1.text-uppercase Register as
     .row
-      .col-md-6
-        = link_to Spree.t(:personal_use), signup_user_personal_path, class:"btn btn-primary btn-block spree-btn text-uppercase btn-registrasi mt-2", 'data-no-turbolink': true, method: "get"
-      .col-md-6
-        = link_to Spree.t(:company_use), signup_user_company_path, class:"btn btn-primary btn-block spree-btn text-uppercase btn-registrasi mt-2", 'data-no-turbolink': true, method: "get"
-        / = button_tag 'Company Use', type: 'button', class: 'btn btn-primary btn-block spree-btn text-uppercase btn-registrasi mt-2 register-company'
-  / .register-personal-form    
-  /   = render partial: 'spree/user_registrations/register_personal_form'
-  / .register-company-form    
-  /   = render partial: 'spree/user_registrations/register_company_form'
+      .col-md-6.mt-5      
+        = link_to signup_user_personal_path do
+          .icon-signup
+            img.img-fluid alt="" src="#{asset_path('homepage/personal-use.png')}"
+            h1.text-uppercase Personal
+      .col-md-6.mt-5
+        = link_to signup_user_company_path do
+          .icon-signup
+            img.img-fluid alt="" src="#{asset_path('homepage/company-use.png')}"
+            h1.text-uppercase Company

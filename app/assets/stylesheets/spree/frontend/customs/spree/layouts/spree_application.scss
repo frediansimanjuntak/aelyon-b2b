@@ -66,3 +66,66 @@ body {
   line-height: 1.06 !important;
   letter-spacing: 0.4px !important;
 }
+
+.icon-signup {
+  border: 3px solid;
+  border-radius: 25px;
+  padding: 20px;
+  margin: auto;
+}
+
+.icon-signup img{
+  height: 100px;
+  left: 80px;
+  position: relative;
+}
+
+.icon-signup h1{
+  position: absolute;
+  top: 54px;
+  right: 120px;
+  font-weight: 500;
+  font-size: 3rem;
+}
+
+.icon-signup h1:hover{
+  color: #fd5757;
+}
+
+.register-head h1{
+  font-size: 3.5em;
+  font-weight: 400;
+}
+
+
+@media (max-width: 1100px) {
+  .icon-signup img{
+    height: 100px;
+    left: 40px;
+    position: relative;
+  }
+  .icon-signup h1{
+    font-size: 3rem;
+    top: 50px;
+    right: 75px;
+  }
+}
+
+@media (max-width: 991px) {
+  .icon-signup h1{
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .icon-signup img{
+    height: 80px;
+    left: 25px;
+    position: relative;
+  }
+  .icon-signup h1{
+    font-size: 2rem;
+    top: 42px;
+    right: 60px;
+  }
+}
