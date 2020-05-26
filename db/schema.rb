@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_25_051751) do
+ActiveRecord::Schema.define(version: 2020_05_26_120921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -1095,6 +1095,17 @@ ActiveRecord::Schema.define(version: 2020_05_25_051751) do
     t.index ["role_id"], name: "index_spree_user_references_on_role_id"
     t.index ["user_id"], name: "index_spree_user_references_on_user_id"
     t.index ["vendor_id"], name: "index_spree_user_references_on_vendor_id"
+  end
+
+  create_table "spree_user_refs_job_descs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.uuid "department_id", default: -> { "gen_random_uuid()" }, null: false
+    t.uuid "user_id", default: -> { "gen_random_uuid()" }, null: false
+    t.uuid "job_description_id", default: -> { "gen_random_uuid()" }, null: false
+    t.index ["department_id"], name: "index_spree_user_refs_job_descs_on_department_id"
+    t.index ["job_description_id"], name: "index_spree_user_refs_job_descs_on_job_description_id"
+    t.index ["user_id"], name: "index_spree_user_refs_job_descs_on_user_id"
   end
 
   create_table "spree_users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

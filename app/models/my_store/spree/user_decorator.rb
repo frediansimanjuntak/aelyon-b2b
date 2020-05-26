@@ -5,6 +5,7 @@ module MyStore
         base.has_many :user_references
         base.has_many :vendors, :through => :user_references
         base.has_many :departments, :through => :user_references
+        base.has_many :user_refs_job_descs, :through => :user_references
       end
 
       def active_for_authentication?
