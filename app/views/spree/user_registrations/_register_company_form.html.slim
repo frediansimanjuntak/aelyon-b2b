@@ -58,7 +58,7 @@
                     .form-row
                       .form-group.col-lg-6
                         = label_tag 'Company Identity Type', nil, class:'font-weight-bold text-dark text-2'
-                        = select_tag "company_identity_type", options_for_select([ "KTP", "NPWP" ], "NPWP"), class: 'form-control'
+                        = select_tag "company_identity_type", options_for_select([ "TAX ID", "BUSINESS ID" ], "TAX ID"), class: 'form-control'
                       .form-group.col-lg-6
                         = label_tag 'Company Identity Number', nil, class:'font-weight-bold text-dark text-2'
                         = text_field_tag 'company_identity_number', nil, class: 'form-control'
