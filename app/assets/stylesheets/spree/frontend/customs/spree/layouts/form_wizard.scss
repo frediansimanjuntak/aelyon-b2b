@@ -35,10 +35,10 @@
   color: #9E9E9E
 }
 
-#msform input,
-#msform textarea {
-  letter-spacing: 1px;
-}
+// #msform input,
+// #msform textarea {
+//   letter-spacing: 1px;
+// }
 
 #msform input:focus,
 #msform textarea:focus {
@@ -173,4 +173,16 @@ select.list-dt:focus {
 .fit-image {
   width: 100%;
   object-fit: cover
+}
+
+.button-action {
+  padding-left: 75px;
+  padding-right: 75px;
+}
+
+@media (max-width: 420px) {
+  .button-action {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 }

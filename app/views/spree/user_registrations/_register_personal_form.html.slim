@@ -49,6 +49,6 @@
                           | Already have an account? Let's do #{link_to Spree.t(:login), login_path, class: ""}
                       .row
                         .col-lg-6                                     
-                          = link_to Spree.t(:cancel), spree_signup_path, class:"btn btn-primary btn-block spree-btn text-uppercase mt-2 register-cancel", 'data-no-turbolink': true, method: "get"
+                          = link_to Spree.t(:cancel), spree_signup_path, class:"btn btn-secondary btn-block spree-btn text-uppercase mt-2 register-cancel", 'data-no-turbolink': true, method: "get"
                         .col-lg-6
-                          = f.submit Spree.t(:sign_up), class: 'btn btn-primary btn-block spree-btn text-uppercase mt-2', tabindex: 4
+                          = f.submit Spree.t(:sign_up), class: 'btn btn-tertiary btn-block spree-btn text-uppercase mt-2', tabindex: 4

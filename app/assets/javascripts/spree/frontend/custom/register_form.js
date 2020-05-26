@@ -1,14 +1,14 @@
 $(document).on("turbolinks:load",function(){ 
-    console.log("aaaa");
     /////
     var current_fs, next_fs, previous_fs; //fieldsets
     var opacity;
   
     $(".next").click(function(){
-        console.log("aaaa");
-  
-      current_fs = $(this).parent();
-      next_fs = $(this).parent().next();
+      parent = $(this).parent();
+      head_parent = parent.parent();
+      current_fs = head_parent.parent();
+      next_fs = head_parent.parent().next();
+      console.log(current_fs);
   
       //Add Class Active
       $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
@@ -32,8 +32,10 @@ $(document).on("turbolinks:load",function(){
     });
   
     $(".previous").click(function(){  
-      current_fs = $(this).parent();
-      previous_fs = $(this).parent().prev();
+      parent = $(this).parent();
+      head_parent = parent.parent();
+      current_fs = head_parent.parent();
+      previous_fs = head_parent.parent().prev();
   
       //Remove class active
       $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");

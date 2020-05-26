@@ -5,8 +5,7 @@
       .col-lg-12.text-center.p-0.mt-3.mb-2
         = render partial: 'spree/shared/error_messages', locals: { target: @user }
         .card.px-0.pt-4.pb-0.mt-3.mb-3
-          h2
-            strong Register A Company Account
+          h1.text-uppercase Register A Company Account
           .row
             .col-md-12.mx-0
               = form_for resource, as: :spree_user, url: spree.registration_path, html: {id: "msform"} do |f|
@@ -22,9 +21,9 @@
                   li#confirm
                     strong Finish
                 /! fieldsets
-                fieldset
+                fieldset.fieldset-form
                   .form-card
-                    h2.fs-title Personal Information
+                    h2.text-uppercase Personal Information
                     .form-row
                       .form-group.col
                         = label_tag 'Full name', nil, class:'font-weight-bold text-dark text-2'
@@ -43,10 +42,13 @@
                     .form-row
                       .form-group.col
                         = label_tag 'Phone Number', nil, class:'font-weight-bold text-dark text-2'
-                        = text_field_tag 'phone_number', nil, class: 'form-control'
-                  input.next.action-button name="next" type="button" value=("Next Step")  class="btn btn-primary spree-btn text-uppercase mt-2 mr-5"                 
-                  = link_to Spree.t(:cancel), spree_signup_path, class:"btn btn-primary spree-btn text-uppercase mt-2", 'data-no-turbolink': true, method: "get"
-                fieldset
+                        = text_field_tag 'phone_number', nil, class: 'form-control' 
+                  .row.button-action
+                    .col-lg-6   
+                      input.next.action-button name="next" type="button" value=("Next Step")  class="btn btn-tertiary btn-block spree-btn text-uppercase mt-2 mr-5"     
+                    .col-lg-6            
+                      = link_to Spree.t(:cancel), spree_signup_path, class:"btn btn-secondary btn-block spree-btn text-uppercase mt-2", 'data-no-turbolink': true, method: "get"
+                fieldset.fieldset-form
                   .form-card
                     h2.fs-title Company Information
                     .form-row
@@ -57,21 +59,27 @@
                       .form-group.col-lg-6
                         = label_tag 'Company Identity Type', nil, class:'font-weight-bold text-dark text-2'
                         = select_tag "company_identity_type", options_for_select([ "KTP", "NPWP" ], "NPWP"), class: 'form-control'
-                        / = text_field_tag 'company_identity_type', nil, class: 'form-control form-control-lg'
                       .form-group.col-lg-6
                         = label_tag 'Company Identity Number', nil, class:'font-weight-bold text-dark text-2'
                         = text_field_tag 'company_identity_number', nil, class: 'form-control'
-                  input.previous.action-button-previous name="previous" type="button" value="Previous" class="btn btn-primary spree-btn text-uppercase mt-2 mr-5"
-                  input.next.action-button name="next" type="button" value=("Next Step") class="btn btn-primary spree-btn text-uppercase mt-2 mr-5"               
-                  = link_to Spree.t(:cancel), spree_signup_path, class:"btn btn-primary spree-btn text-uppercase mt-2", 'data-no-turbolink': true, method: "get"
-                fieldset
+                  .row.button-action
+                    .col-lg-4  
+                      input.previous.action-button-previous name="previous" type="button" value="Previous" class="btn btn-quaternary btn-block spree-btn text-uppercase mt-2 mr-5"
+                    .col-lg-4  
+                      input.next.action-button name="next" type="button" value=("Next Step") class="btn btn-tertiary btn-block spree-btn text-uppercase mt-2 mr-5"
+                    .col-lg-4
+                      = link_to Spree.t(:cancel), spree_signup_path, class:"btn btn-secondary btn-block spree-btn text-uppercase mt-2", 'data-no-turbolink': true, method: "get"
+                fieldset.fieldset-form
                   .form-card
                     h2.fs-title Security Information
                     = render partial: 'spree/shared/user_form', locals: { f: f, remember_me_field: true }
-                  input.previous.action-button-previous name="previous" type="button" value="Previous" class="btn btn-primary spree-btn text-uppercase mt-2 mr-5"
-                  = f.submit "Confirm", class: 'btn btn-primary spree-btn text-uppercase mt-2 mr-5', tabindex: 4
-                  / input.next.action-button name="make_payment" type="button" value="Confirm" class="btn btn-primary spree-btn text-uppercase mt-2 mr-5"              
-                  = link_to Spree.t(:cancel), spree_signup_path, class:"btn btn-primary spree-btn text-uppercase mt-2", 'data-no-turbolink': true, method: "get"
+                  .row.button-action
+                    .col-lg-4  
+                      input.previous.action-button-previous name="previous" type="button" value="Previous" class="btn btn-quaternary btn-block spree-btn text-uppercase mt-2 mr-5"
+                    .col-lg-4  
+                      = f.submit "Confirm", class: 'btn btn-tertiary btn-block spree-btn text-uppercase mt-2 mr-5', tabindex: 4
+                    .col-lg-4             
+                      = link_to Spree.t(:cancel), spree_signup_path, class:"btn btn-secondary btn-block spree-btn text-uppercase mt-2", 'data-no-turbolink': true, method: "get"
                 fieldset
                   .form-card
                     h2.fs-title.text-center Success !
@@ -85,72 +93,3 @@
                     .row.justify-content-center
                       .col-7.text-center
                         h5 You Have Successfully Signed Up
-
-
-
-  /.col
-    .featured-boxes
-      .row
-        .col-md-12
-          = render partial: 'spree/shared/error_messages', locals: { target: @user }
-          .featured-box.featured-box-primary.text-left.mt-5
-            .box-content
-              h4.color-primary.font-weight-semibold.text-4.text-uppercase.mb-3 Register A Company Account
-              #new-customer data-hook="login" 
-                = form_for resource, as: :spree_user, url: spree.registration_path do |f|
-                  div data-hook="signup_inside_form" 
-                    .tab
-                      | User Identity
-                      .form-row
-                        .form-group.col
-                          = label_tag 'Full name', nil, class:'font-weight-bold text-dark text-2'
-                          = text_field_tag 'full_name', nil, class: 'form-control'
-                      .form-row
-                        .form-group.col-lg-6
-                          = label_tag 'Identity Type', nil, class:'font-weight-bold text-dark text-2'
-                          = select_tag "identity_type", options_for_select([ "KTP", "NPWP" ], "NPWP"), class: 'form-control'
-                        .form-group.col-lg-6
-                          = label_tag 'Identity Number', nil, class:'font-weight-bold text-dark text-2'
-                          = text_field_tag 'identity_number', nil, class: 'form-control'
-                      .form-row
-                        .form-group.col
-                          = label_tag 'Address', nil, class:'font-weight-bold text-dark text-2'
-                          = text_field_tag 'address', nil, class: 'form-control'
-                      .form-row
-                        .form-group.col
-                          = label_tag 'Phone Number', nil, class:'font-weight-bold text-dark text-2'
-                          = text_field_tag 'phone_number', nil, class: 'form-control'
-                    .tab
-                      | Company Identity
-                      .form-row
-                        .form-group.col
-                          = label_tag 'Company name', nil, class:'font-weight-bold text-dark text-2'
-                          = text_field_tag 'company_name', nil, class: 'form-control'
-                      .form-row
-                        .form-group.col-lg-6
-                          = label_tag 'Company Identity Type', nil, class:'font-weight-bold text-dark text-2'
-                          = select_tag "company_identity_type", options_for_select([ "KTP", "NPWP" ], "NPWP"), class: 'form-control'
-                          / = text_field_tag 'company_identity_type', nil, class: 'form-control form-control-lg'
-                        .form-group.col-lg-6
-                          = label_tag 'Company Identity Number', nil, class:'font-weight-bold text-dark text-2'
-                          = text_field_tag 'company_identity_number', nil, class: 'form-control'
-                    .tab
-                      | Security
-                      = render partial: 'spree/shared/user_form', locals: { f: f, remember_me_field: true }
-                  div
-                    .form-row
-                      .form-group.col-lg-8
-                        .custom-control.custom-checkbox
-                          input#terms.custom-control-input type="checkbox"
-                          label.custom-control-label.text-2 for="terms" 
-                            | I have read and agree to the
-                            a href="#"  terms of service                        
-                      .form-group.col-lg-4
-                        .row.col-lg-12
-                          label.text-2 for="terms" 
-                            | Already have an account? Let's do #{link_to Spree.t(:login), login_path, class: ""}
-                        .row
-                          .col-lg-6
-                            = button_tag 'Cancel', type: 'button', class: 'btn btn-primary btn-block spree-btn text-uppercase mt-2 register-cancel'
-                          .col-lg-6
-                            = f.submit Spree.t(:sign_up), class: 'btn btn-primary btn-block spree-btn text-uppercase mt-2', tabindex: 4
