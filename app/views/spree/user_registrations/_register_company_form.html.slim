@@ -50,7 +50,7 @@
                       = link_to Spree.t(:cancel), spree_signup_path, class:"btn btn-secondary btn-block spree-btn text-uppercase mt-2", 'data-no-turbolink': true, method: "get"
                 fieldset.fieldset-form
                   .form-card
-                    h2.fs-title Company Information
+                    h2.text-uppercase Company Information
                     .form-row
                         .form-group.col
                           = label_tag 'Company name', nil, class:'font-weight-bold text-dark text-2'
@@ -71,7 +71,7 @@
                       = link_to Spree.t(:cancel), spree_signup_path, class:"btn btn-secondary btn-block spree-btn text-uppercase mt-2", 'data-no-turbolink': true, method: "get"
                 fieldset.fieldset-form
                   .form-card
-                    h2.fs-title Security Information
+                    h2.text-uppercase Security Information
                     = render partial: 'spree/shared/user_form', locals: { f: f, remember_me_field: true }
                   .row.button-action
                     .col-lg-4  
@@ -82,7 +82,7 @@
                       = link_to Spree.t(:cancel), spree_signup_path, class:"btn btn-secondary btn-block spree-btn text-uppercase mt-2", 'data-no-turbolink': true, method: "get"
                 fieldset
                   .form-card
-                    h2.fs-title.text-center Success !
+                    h2.text-uppercase.text-center Success !
                     br
                     br
                     .row.justify-content-center
