@@ -71,7 +71,7 @@ section.section.section-height-2.bg-light.border-0.m-0
                   h3= root[:title]  
           .col-2
             - root[:items].each_with_index do |item, index|
-              - if index < 2
+              - if index == 0 && index == 1
                 .homepage-taxon-box.mb-3
                   = link_to item[:url] do
                     img.w-100.lazyload alt="#{item[:title]}" data-src="#{asset_path('homepage/category_banner_upper.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_upper')}"
@@ -79,7 +79,7 @@ section.section.section-height-2.bg-light.border-0.m-0
                       h3= item[:title]
           .col-2
             - root[:items].each_with_index do |item, index|
-              - if index < 4 && index > 2
+              - if index == 2 && index == 3
                 .homepage-taxon-box.mb-3
                   = link_to item[:url] do
                     img.w-100.lazyload alt="#{item[:title]}" data-src="#{asset_path('homepage/category_banner_upper.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_upper')}"
@@ -87,7 +87,7 @@ section.section.section-height-2.bg-light.border-0.m-0
                       h3= item[:title]
           .col-2
             - root[:items].each_with_index do |item, index|
-              - if index < 6 && index > 4
+              - if index == 4 && index == 5
                 .homepage-taxon-box.mb-3
                   = link_to item[:url] do
                     img.w-100.lazyload alt="#{item[:title]}" data-src="#{asset_path('homepage/category_banner_upper.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_upper')}"
@@ -95,7 +95,7 @@ section.section.section-height-2.bg-light.border-0.m-0
                       h3= item[:title]
           .col-2
             - root[:items].each_with_index do |item, index|
-              - if index < 8 && index > 6
+              - if index == 6 && index == 7
                 .homepage-taxon-box.mb-3
                   = link_to item[:url] do
                     img.w-100.lazyload alt="#{item[:title]}" data-src="#{asset_path('homepage/category_banner_upper.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_upper')}"
