@@ -103,7 +103,7 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
   margin: 15px;
-  flex: auto;
+  flex: inherit;
   border-radius: 10px;
 }
 
@@ -122,7 +122,46 @@ body {
   padding-right: 15px;
 }
 
+.vendor-box {
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.04);
+  border: 1px solid #EEE;
+  text-align: center;
+  padding: 15px;
+}
+
+.homepage-category ul{
+  list-style-type: none;
+}
+
+.homepage-category > ul > li{
+  padding: 20px;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.homepage-category > ul > li:hover{
+  border-left: 4px solid #fd5757;
+}
+
+.homepage-category > ul > .without-border-bottom{
+  border-bottom: 0;
+}
+
+.homepage-category > ul > li > a {
+  font-size: 1.2rem;
+}
+
+.homepage-category > ul > li > a:hover {
+  text-decoration: none;
+}
+
+.homepage-category > ul > li > a > img{
+  width: 50px;
+}
+
 @media (max-width: 1100px) {
+  .navbar-right {
+    margin-right: 25px;
+  }
   .icon-signup img{
     height: 100px;
     left: 40px;
@@ -132,6 +171,10 @@ body {
     font-size: 3rem;
     top: 50px;
     right: 75px;
+  }
+
+  .homepage-category {
+    display: none;
   }
 }
 
@@ -156,20 +199,32 @@ body {
   .product-box{
     margin: 15px;
   }
+
+  .homepage-category {
+    display: none;
+  }
 }
 
 
 @media (max-width: 420px) {
+  .navbar-right {
+    margin-right: 10px;
+  }
   .product-box{
     margin: 15px;
+    flex: auto;
   }
   .product-component-name {
-    font-size: 1.5rem;
-    line-height: 2.5rem;
+    font-size: 1.2rem;
+    line-height: 2rem;
   }
 
   .product-component-price {
-    font-size: 1.3rem;
-    line-height: 2.2rem;
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+
+  .homepage-category {
+    display: none;
   }
 }

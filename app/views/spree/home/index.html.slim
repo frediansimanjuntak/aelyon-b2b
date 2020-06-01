@@ -1,11 +1,21 @@
 - @body_id = 'home'
-.homepage-hero-image.mb-3.position-relative
-  img.lazyload.hero-image.position-absolute alt="#{Spree.t('homepage.summer_collection')}" data-src="#{asset_path('homepage/main_banner.jpg')}" data-srcset="#{image_source_set('homepage/main_banner')}"
-  / .hero-content
-    .homepage-hero-image-text.mb-2.mx-auto.pb-3.pb-md-4
-      | Welcome to the biggest b2b marketplace
-    div
-      = link_to Spree.t('homepage.shop_now'), spree.products_path, class: 'btn btn-primary spree-btn px-5'
+.row
+  .col-md-4.homepage-category
+    ul
+      - spree_navigation_data.each_with_index do |root, index|
+        - if index < 7
+          li 
+            - if root[:title].present?
+              = link_to root[:url] do
+                img.img-fluid.mr-2 alt="" src="#{asset_path('homepage/personal-use.png')}"
+                = root[:title]   
+      li.without-border-bottom 
+        = link_to root_path do
+          img.img-fluid.mr-2 alt="" src="#{asset_path('homepage/menu.png')}"
+          | All Categories
+  .col-md-8
+    .homepage-hero-image.mb-3.position-relative
+      img.lazyload.hero-image.position-absolute alt="#{Spree.t('homepage.summer_collection')}" data-src="#{asset_path('homepage/main_banner.jpg')}" data-srcset="#{image_source_set('homepage/main_banner')}"
 section.section.bg-secondary.border-0.m-0
   .container
     .row.align-items-center
@@ -25,7 +35,7 @@ section.section.bg-secondary.border-0.m-0
           .form-row
             .form-group.col.text-right              
               input.btn.btn-outline.btn-rounded.btn-light.mb-2.px-4.py-3 data-loading-text="Loading..." type="submit" value="SUBMIT"
-section#whoweare.section.section-height-2.bg-light.border-0.m-0
+/ section#whoweare.section.section-height-2.bg-light.border-0.m-0
   .container.container-xl
     .row.align-items-center
       .col-lg-6.mb-5.mb-lg-0
@@ -49,25 +59,49 @@ section#whoweare.section.section-height-2.bg-light.border-0.m-0
           .col-6.col-xl-4.order-2.order-xl-3
             img.img-fluid alt="" src="#{asset_path('homepage/high-five.png')}"
 section.section.section-height-2.bg-light.border-0.m-0
-  .container
-    .row
-      .col-6
-        .homepage-taxon-box.mb-3
-          = link_to spree.nested_taxons_path('men') do
-            img.w-100.lazyload alt="#{Spree.t('homepage.men')}" data-src="#{asset_path('homepage/category_banner_upper.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_upper')}"
-            .homepage-taxon-box-text
-              h3= Spree.t('homepage.men')
-        .homepage-taxon-box
-          = link_to spree.nested_taxons_path('sportswear') do
-            img.w-100.lazyload alt="#{Spree.t('homepage.sportswear')}" data-src="#{asset_path('homepage/category_banner_lower.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_lower')}"
-            .homepage-taxon-box-text aria-label="#{Spree.t('homepage.sportswear')}" role="img" 
-              h3= Spree.t('homepage.sportswear')
-      .col-6.d-flex.flex-column
-        .homepage-taxon-box.flex-grow-1
-          = link_to spree.nested_taxons_path('women') do
-            img.w-100.lazyload alt="#{Spree.t('homepage.women')}" data-src="#{asset_path('homepage/big_category_banner.jpg')}" data-srcset="#{image_source_set('homepage/big_category_banner')}"
-            .homepage-taxon-box-text
-              h3= Spree.t('homepage.women')
+  .container.container-xl
+    - spree_navigation_data.each_with_index do |root, index|
+      - if index < 3
+        .row.mb-5
+          .col-4.d-flex.flex-column
+            .homepage-taxon-box.flex-grow-1
+              = link_to root[:url] do
+                img.w-100.lazyload alt="#{root[:title]}" data-src="#{asset_path('homepage/big_category_banner.jpg')}" data-srcset="#{image_source_set('homepage/big_category_banner')}"
+                .homepage-taxon-box-text
+                  h3= root[:title]  
+          .col-2
+            - root[:items].each_with_index do |item, index|
+              - if index < 2
+                .homepage-taxon-box.mb-3
+                  = link_to item[:url] do
+                    img.w-100.lazyload alt="#{item[:title]}" data-src="#{asset_path('homepage/category_banner_upper.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_upper')}"
+                    .homepage-taxon-box-text
+                      h3= item[:title]
+          .col-2
+            - root[:items].each_with_index do |item, index|
+              - if index < 4 && index > 2
+                .homepage-taxon-box.mb-3
+                  = link_to item[:url] do
+                    img.w-100.lazyload alt="#{item[:title]}" data-src="#{asset_path('homepage/category_banner_upper.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_upper')}"
+                    .homepage-taxon-box-text
+                      h3= item[:title]
+          .col-2
+            - root[:items].each_with_index do |item, index|
+              - if index < 6 && index > 4
+                .homepage-taxon-box.mb-3
+                  = link_to item[:url] do
+                    img.w-100.lazyload alt="#{item[:title]}" data-src="#{asset_path('homepage/category_banner_upper.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_upper')}"
+                    .homepage-taxon-box-text
+                      h3= item[:title]
+          .col-2
+            - root[:items].each_with_index do |item, index|
+              - if index < 8 && index > 6
+                .homepage-taxon-box.mb-3
+                  = link_to item[:url] do
+                    img.w-100.lazyload alt="#{item[:title]}" data-src="#{asset_path('homepage/category_banner_upper.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_upper')}"
+                    .homepage-taxon-box-text
+                      h3= item[:title]
+              
 section.section.section-height-2.bg-light.border-0.m-0
   .my-3 data-product-carousel="" data-product-carousel-taxon-id="bestsellers" 
 section#ourfeatures.section.section-height-4.border-0.m-0
