@@ -58,17 +58,22 @@ section.section.bg-secondary.border-0.m-0
               p.text-color-light.line-height-9.text-center.text-4.z-index-1.custom-responsive-text-size-1.mb-0.px-2 Fast and Reliable
           .col-6.col-xl-4.order-2.order-xl-3
             img.img-fluid alt="" src="#{asset_path('homepage/high-five.png')}"
-section.section.section-height-2.bg-light.border-0.m-0
-  .container.container-xl
-    - spree_navigation_data.each_with_index do |root, index|
-      - if index < 3
-        .row.mb-5
+
+- spree_navigation_data.each_with_index do |root, index|
+  - if index < 3
+    section.section.section-height-2.bg-light.border-0.m-0
+      .container.container-xl
+        .category-title
+          h2.text-uppercase = root[:title]
+        .row
           .col-4.d-flex.flex-column
+            .category-count
+              = root[:items].count
             .homepage-taxon-box.flex-grow-1
               = link_to root[:url] do
                 img.w-100.lazyload alt="#{root[:title]}" data-src="#{asset_path('homepage/big_category_banner.jpg')}" data-srcset="#{image_source_set('homepage/big_category_banner')}"
                 .homepage-taxon-box-text
-                  h3= root[:title]  
+                  h3 View All  
           .col-2
             - root[:items].each_with_index do |item, index|
               - if index < 2
