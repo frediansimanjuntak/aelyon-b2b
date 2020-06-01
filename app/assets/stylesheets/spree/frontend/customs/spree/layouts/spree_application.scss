@@ -173,6 +173,10 @@ body {
   text-align: center;
 }
 
+.dropdown-menu.show li > a {
+  text-decoration: none;
+}
+
 @media (min-width: 992px){
   .homepage-taxon-box {
       height: 250px;

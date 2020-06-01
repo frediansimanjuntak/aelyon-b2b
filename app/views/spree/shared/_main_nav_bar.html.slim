@@ -4,31 +4,23 @@
       a.dropdown-toggle aria-expanded="true" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
         span.nav-label Categories
       ul.dropdown-menu.animate.slideIn
-        - spree_navigation_data.each do |root|
-          li.dropdown-submenu
-            - if root[:title].present?
-              a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#{root[:url]}" role="button" 
-                span.nav-label = root[:title]
-                span.caret
-              ul.dropdown-menu
-                - root[:items].each do |item|
-                  li
-                    = link_to item[:title], item[:url]
-
-    / li.navbar.main-nav-bar-dropdown.main-nav-bar-category
-      | Categories
-      .w-100.shadow.main-nav-bar-category-dropdown
-        .container.p-0.d-flex.justify-content-xl-around.mx-auto
-          .row                  
-            - spree_navigation_data.each do |root|
-              .category-links
+        - spree_navigation_data.each_with_index do |root, index|
+          - if index < 10
+            - if root[:items].count > 0
+              li.dropdown-submenu
                 - if root[:title].present?
-                  .category-links-header.text-uppercase
-                    = link_to root[:title], root[:url], class: "category-links-title"
-                ul.pl-0
-                  - root[:items].each do |item|
-                    li
-                      = link_to item[:title], item[:url], class: "text-uppercase main-nav-bar-category-links"
+                  a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#{root[:url]}" role="button" 
+                    span.nav-label = root[:title]
+                  - if root[:items].count > 0
+                    ul.dropdown-menu
+                      - root[:items].each_with_index do |item, index|
+                        - if index < 10
+                          li
+                            = link_to item[:title], item[:url]                  
+                      li = link_to "All Categories", root_path   
+            - else
+              li = link_to root[:title], root[:url]
+        li = link_to "All Categories", root_path
     li.navbar.main-nav-bar-category
       .nav-search
         form action="page-search-results.html" method="get" role="search" 
@@ -37,29 +29,3 @@
             span.input-group-append
               button.btn type="submit" 
                 i.fa.fa-search.header-nav-top-icon
-    / - spree_navigation_data.each do |root|
-      li.navbar.main-nav-bar-dropdown.main-nav-bar-category
-        = link_to root[:title], root[:url], class: "p-2 main-nav-bar-item main-nav-bar-category-button"
-        - if root[:items].present? || root[:promo_banners].present?
-          .w-100.shadow.main-nav-bar-category-dropdown
-            .container.p-0.d-flex.justify-content-xl-around.mx-auto
-              - if root[:items].present?
-                .row
-                  .category-links
-                    - if root[:subtitle].present?
-                      .category-links-header.text-uppercase
-                        = root[:subtitle]
-                    ul.pl-0
-                      - root[:items].each do |item|
-                        li
-                          = link_to item[:title], item[:url], class: "text-uppercase main-nav-bar-category-links"
-                  - if root[:promo_banners].present?
-                    - root[:promo_banners].each do |promo_banner|
-                      = link_to promo_banner[:url] do
-                        .category-image.text-center.mx-3
-                          = main_nav_image(promo_banner[:image], promo_banner[:title])
-                          .category-box
-                            .category-box-small-text
-                              = promo_banner[:subtitle]
-                            .category-box-big-text
-                              = promo_banner[:title]
