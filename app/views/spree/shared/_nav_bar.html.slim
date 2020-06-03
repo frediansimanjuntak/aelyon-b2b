@@ -14,7 +14,7 @@ ul#nav-bar.nav.align-items-center.d-flex.justify-content-end.navbar-right
           / = icon(name: 'person',classes: 'd-none d-xl-inline-block',width: 35,height: 30)
           / = icon(name: 'person', classes: 'd-xl-none', width: 24, height: 24)
         #link-to-account.dropdown-menu.dropdown-menu-right.text-right
-  - if try_spree_current_user
+  - if spree_current_user
     li
       a href="#" 
         i.far.fa-bell.icon-header
