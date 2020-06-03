@@ -7,7 +7,7 @@
           li 
             - if root[:title].present?
               = link_to root[:url] do
-                img.img-fluid.mr-2 alt="" src="#{asset_path('homepage/personal-use.png')}"
+                = image_tag main_app.url_for(root[:icon].try(:attachment)), :class => "img-fluid mr-2" if root[:icon]
                 = root[:title]   
       li.without-border-bottom 
         = link_to root_path do

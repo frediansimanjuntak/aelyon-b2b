@@ -11,6 +11,7 @@ module Spree
         taxon_object = {
           title: taxon.name,
           url: '/t/' + taxon.permalink,
+          icon: taxon.icon,
           items: navigation_child(taxon)
         }
         taxon_arr.push(taxon_object)
