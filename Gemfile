@@ -45,7 +45,7 @@ gem 'cocoon'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
 # AWS S3 gem for file storage
-gem 'aws-sdk-s3'
+gem "aws-sdk-s3", require: false
 
 #font-awesome
 gem 'font-awesome-sass', '~> 5.12.0'
