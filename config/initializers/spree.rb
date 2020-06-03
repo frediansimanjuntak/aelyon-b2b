@@ -20,6 +20,7 @@ Spree.config do |config|
   config.admin_interface_logo = 'logos/aelyon-logo-dark.png'
   # Show Spree version number
   config.admin_show_version = false
+
 end
 
 # Configure Spree Dependencies
@@ -37,25 +38,4 @@ end
 Spree.user_class = "Spree::User"
 Spree::Auth::Config[:confirmable] = true
 
-# Configure Spree to use Amazon S3
-# attachment_config = {
-#   s3_credentials: {
-#     access_key_id:     ENV['AWS_ACCESS_KEY_ID'],
-#     secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-#     bucket:            ENV['S3_BUCKET_NAME']
-#   },
 
-#   storage:        :s3,
-#   s3_region:      ENV['S3_REGION'],
-#   s3_headers:     { "Cache-Control" => "max-age=31557600" },
-#   s3_protocol:    "https",
-#   bucket:         ENV['S3_BUCKET_NAME'],
-#   url:            ":s3_domain_url",
-
-#   path:           "/:class/:id/:style/:basename.:extension",
-#   default_url:    "/:class/:id/:style/:basename.:extension",
-# }
-
-# attachment_config.each do |key, value|
-#   Spree::Image.attachment_definitions[:attachment][key.to_sym] = value
-# end

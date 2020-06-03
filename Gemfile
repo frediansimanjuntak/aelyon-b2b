@@ -42,6 +42,8 @@ gem 'enumerize'
 
 gem 'cocoon'
 
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+
 # AWS S3 gem for file storage
 gem 'aws-sdk-s3'
 

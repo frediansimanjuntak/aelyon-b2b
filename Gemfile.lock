@@ -1,4 +1,15 @@
 GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: e3f7493b4cc954405a0209d26933830333ae2869
+  specs:
+    paperclip (6.1.0)
+      activemodel (>= 4.2.0)
+      activesupport (>= 4.2.0)
+      mime-types
+      mimemagic (~> 0.3.0)
+      terrapin (~> 0.6.0)
+
+GIT
   remote: https://github.com/spree-contrib/spree_multi_vendor.git
   revision: a4d83ca9b371e29105fe9c2e8da2244bf889fff0
   specs:
@@ -121,6 +132,7 @@ GEM
       activesupport (>= 3.0.0)
     childprocess (3.0.0)
     cldr-plurals-runtime-rb (1.0.1)
+    climate_control (0.2.0)
     cocoon (1.2.14)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
@@ -203,6 +215,9 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
+    mime-types (3.3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2020.0512)
     mimemagic (0.3.5)
     mini_magick (4.10.1)
     mini_mime (1.0.2)
@@ -394,6 +409,8 @@ GEM
       state_machines-activemodel (>= 0.5.0)
     stringex (2.8.5)
     temple (0.8.2)
+    terrapin (0.6.0)
+      climate_control (>= 0.0.3, < 1.0)
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -442,6 +459,7 @@ DEPENDENCIES
   font-awesome-sass (~> 5.12.0)
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
+  paperclip!
   pg
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
