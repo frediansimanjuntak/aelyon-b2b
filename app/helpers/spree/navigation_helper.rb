@@ -12,6 +12,7 @@ module Spree
           title: taxon.name,
           url: '/t/' + taxon.permalink,
           icon: taxon.icon,
+          banner: taxon.banner,
           items: navigation_child(taxon)
         }
         taxon_arr.push(taxon_object)

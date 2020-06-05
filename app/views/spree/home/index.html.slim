@@ -71,7 +71,10 @@ section.section.bg-secondary.border-0.m-0
               = root[:items].count
             .homepage-taxon-box.flex-grow-1
               = link_to root[:url] do
-                img.w-100.lazyload alt="#{root[:title]}" data-src="#{asset_path('homepage/big_category_banner.jpg')}" data-srcset="#{image_source_set('homepage/big_category_banner')}"
+                - if root[:banner]
+                  = image_tag main_app.url_for(root[:banner].try(:attachment)), :class => "w-100 lazyload" 
+                - else
+                  img.w-100.lazyload alt="#{root[:title]}" data-src="#{asset_path('homepage/big_category_banner.jpg')}" data-srcset="#{image_source_set('homepage/big_category_banner')}"
                 .homepage-taxon-box-text
                   h3 View All  
           .col-2
@@ -79,7 +82,10 @@ section.section.bg-secondary.border-0.m-0
               - if index < 2
                 .homepage-taxon-box.mb-3
                   = link_to item[:url] do
-                    img.w-100.lazyload alt="#{item[:title]}" data-src="#{asset_path('homepage/category_banner_upper.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_upper')}"
+                    - if item[:banner]
+                      = image_tag main_app.url_for(item[:banner].try(:attachment)), :class => "w-100 lazyload" 
+                    - else
+                      img.w-100.lazyload alt="#{item[:title]}" data-src="#{asset_path('homepage/category_banner_upper.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_upper')}"
                     .homepage-taxon-box-text
                       h3= item[:title]
           .col-2
@@ -87,7 +93,10 @@ section.section.bg-secondary.border-0.m-0
               - if index > 1 && index < 4
                 .homepage-taxon-box.mb-3
                   = link_to item[:url] do
-                    img.w-100.lazyload alt="#{item[:title]}" data-src="#{asset_path('homepage/category_banner_upper.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_upper')}"
+                    - if item[:banner]
+                      = image_tag main_app.url_for(item[:banner].try(:attachment)), :class => "w-100 lazyload" 
+                    - else
+                      img.w-100.lazyload alt="#{item[:title]}" data-src="#{asset_path('homepage/category_banner_upper.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_upper')}"
                     .homepage-taxon-box-text
                       h3= item[:title]
           .col-2
@@ -95,7 +104,10 @@ section.section.bg-secondary.border-0.m-0
               - if index > 3 && index < 6
                 .homepage-taxon-box.mb-3
                   = link_to item[:url] do
-                    img.w-100.lazyload alt="#{item[:title]}" data-src="#{asset_path('homepage/category_banner_upper.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_upper')}"
+                    - if item[:banner]
+                      = image_tag main_app.url_for(item[:banner].try(:attachment)), :class => "w-100 lazyload" 
+                    - else
+                      img.w-100.lazyload alt="#{item[:title]}" data-src="#{asset_path('homepage/category_banner_upper.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_upper')}"
                     .homepage-taxon-box-text
                       h3= item[:title]
           .col-2
@@ -103,7 +115,10 @@ section.section.bg-secondary.border-0.m-0
               - if index > 5 && index < 8
                 .homepage-taxon-box.mb-3
                   = link_to item[:url] do
-                    img.w-100.lazyload alt="#{item[:title]}" data-src="#{asset_path('homepage/category_banner_upper.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_upper')}"
+                    - if item[:banner]
+                      = image_tag main_app.url_for(item[:banner].try(:attachment)), :class => "w-100 lazyload" 
+                    - else
+                      img.w-100.lazyload alt="#{item[:title]}" data-src="#{asset_path('homepage/category_banner_upper.jpg')}" data-srcset="#{image_source_set('homepage/category_banner_upper')}"
                     .homepage-taxon-box-text
                       h3= item[:title]
               
