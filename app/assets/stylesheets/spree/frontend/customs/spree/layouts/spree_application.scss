@@ -208,6 +208,20 @@ body {
   color: #f7f7f7;
 }
 
+.taxon-banner-text{
+  top: 20px;
+  left: 0;
+  justify-content: left;
+}
+
+.taxon-banner-text h3{
+  background: transparent;
+  line-height: 1.5;
+  font-weight: 900;
+  text-transform: capitalize;
+  font-size: 1.3rem !important;
+}
+
 @media (min-width: 992px){
   .homepage-taxon-box {
       height: 250px;
