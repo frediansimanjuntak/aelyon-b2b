@@ -49,7 +49,9 @@ module Spree
       taxons.each do |taxon|
         taxon_object = {
           title: taxon.name,
-          url: '/t/' + taxon.permalink
+          url: '/t/' + taxon.permalink,
+          icon: taxon.icon,
+          banner: taxon.banner,
         }
         taxon_arr.push(taxon_object)
       end
