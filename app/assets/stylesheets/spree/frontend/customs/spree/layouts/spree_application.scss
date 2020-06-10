@@ -177,6 +177,37 @@ body {
   text-decoration: none;
 }
 
+.taxon-header{
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 0px;
+  max-width: 100%;
+}
+
+.taxon-header-image {
+  position: relative;
+  top: 0;
+}
+
+.taxon-title-new {
+  position: absolute;
+  z-index: 1;
+  top: 130px;
+  left: 50px;
+  color: #f7f7f7;
+}
+
+.taxon-breadcrumb {
+  position: absolute;
+  z-index: 1;
+  top: 70px;
+  left: 50px;
+}
+
+.taxon-breadcrumb #breadcrumbs .breadcrumb li {
+  color: #f7f7f7;
+}
+
 @media (min-width: 992px){
   .homepage-taxon-box {
       height: 250px;

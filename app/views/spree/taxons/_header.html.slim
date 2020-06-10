@@ -1,8 +1,8 @@
 - cache [base_cache_key, taxon, 'header'] do
-  .py-md-3.text-uppercase.taxon-title
+  .py-md-3.text-uppercase.taxon-title.taxon-title-new
     = @taxon.name
   - unless @taxon.description.blank?
     .py-3.py-md-0.taxon-description= @taxon.description
   - if @taxon.header_image&.attachment
-    .d-none.d-md-block.pt-4.taxon-icon
-      = lazy_image(src: main_app.url_for(@taxon.header_image.attachment), alt: @taxon.description || Spree.t('taxon_missing_alt'), width: 1110, height: 300, class: 'w-100')
+    .d-none.d-md-block.taxon-header-image
+      = lazy_image(src: main_app.url_for(@taxon.header_image.attachment), alt: @taxon.description || Spree.t('taxon_missing_alt'), width: 1900, height: 300, class: 'w-100')

@@ -1,6 +1,7 @@
 .taxon
-  .container.container-xl
-    = spree_breadcrumbs(@taxon)
+  .container.taxon-header
+    .taxon-breadcrumb
+       = spree_breadcrumbs(@taxon)
     = render 'header', taxon: @taxon
   = render 'subcategories', taxon: @taxon
   div data-hook="taxon_products" 
