@@ -165,12 +165,14 @@ body {
 
 .category-count {
   position: absolute;
-  background-color: #fff;
+  background-color: #fd5757;
+  color: #f7f7f7;
   z-index: 1;
   left: 20px;
   top: 20px;
   width: 10%;
   text-align: center;
+  border-radius: 25px;
 }
 
 .dropdown-menu.show li > a {
@@ -223,12 +225,20 @@ body {
   font-size: 1.3rem !important;
 }
 
+.taxon-parent-category-image {
+  height: 100% !important;
+}
+
 @media (min-width: 992px){
   .homepage-taxon-box {
-      height: 250px;
+    height: 280px;
+    -webkit-box-shadow: 7px 6px 9px -3px rgba(0,0,0,0.36);
+    -moz-box-shadow: 7px 6px 9px -3px rgba(0,0,0,0.36);
+    box-shadow: 7px 6px 9px -3px rgba(0,0,0,0.36);
   }
   .homepage-taxon-box h3 {
     font-size: 1rem;
+    background: transparent;
   }
 }
 
