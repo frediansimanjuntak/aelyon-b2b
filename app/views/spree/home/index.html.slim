@@ -75,7 +75,7 @@ section.section.bg-secondary.border-0.m-0
                     = image_tag main_app.url_for(root[:banner].try(:attachment)), :class => "w-100 lazyload" 
                   - else
                     img.w-100.lazyload alt="#{root[:title]}" data-src="#{asset_path('homepage/big_category_banner.jpg')}" data-srcset="#{image_source_set('homepage/big_category_banner')}"
-                  .homepage-taxon-box-text
+                  / .homepage-taxon-box-text
                     h3 View All
           .col-xs-12.col-sm-12.col-md-2.col-lg-2
             - root[:items].each_with_index do |item, index|

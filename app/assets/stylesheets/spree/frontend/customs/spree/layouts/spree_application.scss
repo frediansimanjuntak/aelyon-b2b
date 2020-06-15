@@ -179,6 +179,12 @@ body {
   text-decoration: none;
 }
 
+.homepage-taxon-box {
+  -webkit-box-shadow: 7px 6px 9px -3px rgba(0,0,0,0.36);
+  -moz-box-shadow: 7px 6px 9px -3px rgba(0,0,0,0.36);
+  box-shadow: 7px 6px 9px -3px rgba(0,0,0,0.36);
+}
+
 .taxon-header{
   margin-left: 0px;
   margin-right: 0px;
@@ -226,19 +232,12 @@ body {
 }
 
 .taxon-parent-category-image {
-  height: 100% !important;
+  height: 500px !important;
 }
 
 @media (min-width: 992px){
   .homepage-taxon-box {
-    height: 280px;
-    -webkit-box-shadow: 7px 6px 9px -3px rgba(0,0,0,0.36);
-    -moz-box-shadow: 7px 6px 9px -3px rgba(0,0,0,0.36);
-    box-shadow: 7px 6px 9px -3px rgba(0,0,0,0.36);
-  }
-  .homepage-taxon-box h3 {
-    font-size: 1rem;
-    background: transparent;
+      height: 242px;
   }
 }
 
@@ -266,6 +265,22 @@ body {
   .icon-signup h1{
     font-size: 1.5rem;
   }
+  .taxon-parent-category-image {
+    height: 320px !important;
+  }
+
+  .homepage-taxon-box {
+    height: 150px;
+  }
+  .homepage-taxon-box h3 {
+    font-size: 0.80rem;
+    background: transparent;
+  }
+
+  .taxon-banner-text h3{
+    line-height: 1;
+    font-size: 0.80rem !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -289,7 +304,16 @@ body {
   }
 
   .homepage-taxon-box {
-    height: 280px;
+    height: 152px;
+  }
+
+  .taxon-parent-category {
+    margin-bottom: 20px;
+  }
+
+  .taxon-banner-text h3{
+    line-height: 1;
+    font-size: 0.85rem !important;
   }
 }
 
@@ -317,6 +341,11 @@ body {
   }
 
   .homepage-taxon-box {
-    height: 280px;
+    height: 300px;
+  }
+
+  .taxon-banner-text h3{
+    line-height: 1;
+    font-size: 1.5rem !important;
   }
 }
