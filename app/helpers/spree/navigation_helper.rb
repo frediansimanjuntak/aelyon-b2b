@@ -21,6 +21,25 @@ module Spree
       taxon_arr || []
     end
 
+    def spree_taxon_homepage
+      taxon_arr = Array.new()
+      taxon_category = Spree::Taxon.find_by(name: "Categories")
+      taxons = Spree::Taxon.where(parent_id: taxon_category.id, show_homepage_list: true)
+
+      taxons.each do |taxon|
+        taxon_object = {
+          title: taxon.name,
+          url: '/t/' + taxon.permalink,
+          icon: taxon.icon,
+          banner: taxon.banner,
+          items: navigation_child(taxon)
+        }
+        taxon_arr.push(taxon_object)
+      end
+
+      taxon_arr || []
+    end
+
     def spree_nav_cache_key(section = 'header')
       base_cache_key + [current_store, spree_navigation_data_cache_key, Spree::Config[:logo], section]
     end

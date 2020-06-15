@@ -18,6 +18,12 @@ div data-hook="admin_inside_taxon_form"
           br
           = f.check_box :hide_from_nav, { checked: @taxon.hide_from_nav }
           small= Spree.t(:say_yes)
+      = f.field_container :show_homepage_list, class: ['form-group'] do
+        = f.label :show_homepage_list do
+          = Spree.t(:show_homepage_list)
+          br
+          = f.check_box :show_homepage_list, { checked: @taxon.show_homepage_list }
+          small= Spree.t(:say_yes)
       = f.field_container :icon, class: ['form-group'] do
         = f.label :icon, Spree.t(:icon)
         = image_tag main_app.url_for(@taxon.icon.try(:attachment)) if @taxon.icon

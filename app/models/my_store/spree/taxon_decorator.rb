@@ -4,6 +4,7 @@ module MyStore
       def self.prepended(base)
         base.has_one :header_image, as: :viewable, dependent: :destroy, class_name: '::Spree::TaxonHeaderImage'
         base.has_one :banner, as: :viewable, dependent: :destroy, class_name: '::Spree::TaxonBanner'
+        base.validates :show_homepage_list, inclusion: { in: [true, false] }
       end      
     end
   end

@@ -22,5 +22,7 @@ Rails.application.routes.draw do
       get '/signup/user/personal' => 'user_registrations#new_user_personal', :as => :signup_user_personal
       post '/signup/user/personal' => 'user_registrations#create_user_personal', :as => :registration_user_personal
     end
+
+    resources :categories
   end
 end

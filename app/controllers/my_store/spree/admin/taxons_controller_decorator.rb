@@ -44,7 +44,7 @@ module MyStore
         private
 
         def taxon_params
-          params.require(:taxon).permit(:name, :permalink, :description, :icon, :header_image, :banner, :meta_title, :meta_description, :meta_keywords, :hide_from_nav)
+          params.require(:taxon).permit(:name, :permalink, :description, :icon, :header_image, :banner, :meta_title, :meta_description, :meta_keywords, :hide_from_nav, :show_homepage_list)
         end
       end
     end

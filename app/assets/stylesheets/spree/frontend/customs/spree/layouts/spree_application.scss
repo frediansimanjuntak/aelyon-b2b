@@ -235,6 +235,30 @@ body {
   height: 500px !important;
 }
 
+.categories-list-image {
+  height: 300px !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.categories-list-text {
+  position: relative;
+  bottom: 0;
+  text-align: center;
+}
+
+.categories-list-text h3{
+  font-size: 1.2rem;
+}
+
+.categories-list a {
+  text-decoration:none;
+}
+
+.categories-list-text h3:hover {
+  color: #fd5757;
+}
+
 @media (min-width: 992px){
   .homepage-taxon-box {
       height: 242px;
