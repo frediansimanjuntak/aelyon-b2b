@@ -28,7 +28,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Install spree for e-commerce
 gem 'spree', '~> 4.1'
-gem 'spree_auth_devise', '~> 4.1'
+gem 'spree_auth_devise', '~> 4.3'
 gem 'spree_gateway', '~> 3.7'
 gem 'spree_multi_vendor', github: 'spree-contrib/spree_multi_vendor'
 
